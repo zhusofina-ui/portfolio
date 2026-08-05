@@ -52,7 +52,7 @@ export function Hero() {
               whileHover={{ scale: 1.05 }}
               src="https://plain-wnam-prod-public.komododecks.com/202608/05/wSG5DQP9QWFDGWIg8I6K/image.png"
               alt="My portrait"
-              className="w-full max-w-110 translate-x-10 h-auto object-contain drop-shadow-xl rotate-5 cursor-grab active:cursor-grabbing relative z-[99]"
+              className="w-full max-w-110 translate-x-85 h-auto object-contain drop-shadow-xl rotate-5 cursor-grab active:cursor-grabbing relative z-[99]"
             />
           </div>
         </div>
