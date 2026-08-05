@@ -1,4 +1,4 @@
-import { Squiggle } from '@/components/doodles'
+import { Heart, Squiggle } from '@/components/doodles'
 
 export function Contact() {
   return (
@@ -8,6 +8,7 @@ export function Contact() {
       aria-labelledby="contact-heading"
     >
       <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
+        <Heart className="mx-auto mb-6 h-10 w-10 text-pink" />
         <h2
           id="contact-heading"
           className="text-4xl font-normal leading-tight text-cocoa sm:text-6xl"
@@ -27,11 +28,15 @@ export function Contact() {
 
         <Squiggle className="mx-auto mt-12 h-6 w-40 text-pink" />
 
-        <div className="mt-10 flex items-center justify-center gap-6 text-lg text-cocoa/70">
+        <div className="mt-10 flex items-center justify-center gap-6 text-2xl text-cocoa/70">
           <a href="#" className="transition-colors hover:text-cocoa" style={{ fontFamily: 'var(--font-geist), sans-serif' }}>
             @sofinazhu_
           </a>
         </div>
+
+        <p className="mt-16 text-sm text-cocoa/50">
+          made with love
+        </p>
       </div>
     </section>
   )
