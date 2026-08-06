@@ -149,9 +149,9 @@ const designs: Project[] = [
     color: 'bg-butter',
     images: [
       {
-        src: '/your-image.png',
-        captionTitle: 'new content coming soon!',
-        captionSubtitle: 'come back later~'
+        src: 'sofinazhu (1)_page-0001.jpg',
+        captionTitle: 'check out my resume!',
+        captionSubtitle: ''
       }
     ]
   }
@@ -257,7 +257,7 @@ export function Work() {
             <p className="mt-2 font-hand text-2xl text-cocoa/70">{activeProject.tag}</p>
 
             {/* Scrollable Work Area */}
-            <div className={`mt-8 grid gap-8 pb-8 ${activeProject.title === 'static posts' || activeProject.title === 'photography' ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
+            <div className={`mt-8 grid gap-8 pb-8 ${activeProject.title === 'static posts' || activeProject.title === 'photography'| activeProject.title === 'miscellaneous' ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
               {activeProject.images && activeProject.images.length > 0 ? (
                 activeProject.images.map((img, index) => (
                   <div key={index} className="flex flex-col items-center gap-3">
