@@ -110,7 +110,7 @@ export default function InteractiveWhiteboard() {
       
       {/* TITLE BANNER */}
       <div className="relative inline-block px-12 py-3.5 bg-[#F2D4DA] rounded-xl shadow-[4px_4px_0px_#4A3323] border-2 border-[#4A3323] text-center rotate-[-1deg]">
-        <h2 className="text-6xl font-display text-[#4A3323] tracking-wide">leave a trace!</h2>
+        <h2 className="text-6xl font-display text-[#4A3323] tracking-wide">~leave a doodle~</h2>
       </div>
 
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-5xl items-start justify-center mx-auto px-4">
