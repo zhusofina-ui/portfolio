@@ -13,9 +13,9 @@ export function Navbar() {
       >
         <a
           href="#hero"
-          className="text-2xl font-bold tracking-tight text-cocoa transition-transform hover:-rotate-3"
+          className="text-2xl tracking-tight text-cocoa transition-transform hover:-rotate-3"
         >
-          sofina<span className="text-pink">.</span>
+          sofina.<span className="text-pink">.</span>
         </a>
         <ul className="flex items-center gap-6 text-base font-medium text-cocoa/80 sm:gap-9 sm:text-lg">
           {links.map((link) => (
