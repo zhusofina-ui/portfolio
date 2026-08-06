@@ -118,6 +118,11 @@ const designs: Project[] = [
         src: '/IMG_7432.JPG',
         captionTitle: '美国人, 2026',
         captionSubtitle: 'Canon Digital IXUS 900 Ti'
+      },
+      {
+        src: '/IMG_0571.jpg',
+        captionTitle: 'shiny rock, 2024',
+        captionSubtitle: 'iphone 13'
       }
     ]
   },
