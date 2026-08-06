@@ -90,7 +90,32 @@ const designs: Project[] = [
     color: 'bg-butter',
     images: [
       {
-        src: '/your-image.png',
+        src: '/IMG_7250.JPG',
+        captionTitle: 'The Youth Horizon, 2026',
+        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+      },
+      {
+        src: '/IMG_7252.JPG',
+        captionTitle: 'The Youth Horizon, 2026',
+        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+      },
+      {
+        src: '/IMG_7359.JPG',
+        captionTitle: 'The Youth Horizon, 2026',
+        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+      },
+      {
+        src: '/IMG_7284.JPG',
+        captionTitle: 'The Youth Horizon, 2026',
+        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+      },
+      {
+        src: '/IMG_7366.JPG',
+        captionTitle: 'The Youth Horizon, 2026',
+        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+      },
+      {
+        src: '/IMG_7432.JPG',
         captionTitle: 'The Youth Horizon, 2026',
         captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
       }
