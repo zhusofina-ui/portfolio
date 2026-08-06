@@ -14,7 +14,7 @@ export function Contact() {
         >
           Let&apos;s build something{' '}
           <span className="font-hand text-5xl text-butter drop-shadow-sm sm:text-7xl">
-            fun!
+            fun
           </span>
         </h2>
 
