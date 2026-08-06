@@ -4,7 +4,8 @@ import { Arrow } from '@/components/doodles'
 
 type ProjectImage = {
   src: string
-  caption: string
+  captionTitle: string
+  captionSubtitle: string
 }
 
 type Project = {
@@ -15,63 +16,81 @@ type Project = {
 }
 
 const playable: Project[] = [
-  { 
-    title: 'static posts', 
-    tag: 'canva', 
+  {
+    title: 'static posts',
+    tag: 'canva',
     color: 'bg-pink',
     images: [
-      { src: '/post1.jpg', caption: 'My first social media campaign' },
-      { src: '/post2.jpg', caption: 'Some cool typography experiments' }
+      {
+        src: '/your-image.png',
+        captionTitle: 'The Youth Horizon, 2026',
+        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+      }
     ]
   },
-  { 
-    title: 'carousels', 
-    tag: 'video / davinci', 
+  {
+    title: 'carousels',
+    tag: 'video / davinci',
     color: 'bg-butter',
     images: [
-      { src: '/Daily Bread Food Bank & The Youth Horizon, 2026.png', caption: 'Daily Bread Food Bank & The Youth Horizon, 2026' },
-      { src: '/carousel2.jpg', caption: 'Step-by-step tutorial layouts' }
+      {
+        src: '/Daily Bread Food Bank & The Youth Horizon, 2026.png',
+        captionTitle: 'Daily Bread Food Bank & The Youth Horizon, 2026',
+        captionSubtitle: 'Adobe Photoshop CC 2026 & Canva'
+      }
     ]
   },
-  { 
-    title: 'merchandise', 
-    tag: 'audio / experiments', 
+  {
+    title: 'merchandise',
+    tag: 'audio / experiments',
     color: 'bg-blush',
     images: [
-      { src: '/merch1.jpg', caption: 'T-shirt design mockup' },
-      { src: '/merch2.jpg', caption: 'Custom sticker pack concepts' }
+      {
+        src: '/your-image.png',
+        captionTitle: 'The Youth Horizon, 2026',
+        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+      }
     ]
-  },
+  }
 ]
 
 const designs: Project[] = [
-  { 
-    title: 'photography', 
-    tag: 'procreate', 
+  {
+    title: 'photography',
+    tag: 'procreate',
     color: 'bg-butter',
     images: [
-      { src: '/photo1.jpg', caption: 'Portrait lighting study' },
-      { src: '/photo2.jpg', caption: 'Street photography in the city' }
+      {
+        src: '/your-image.png',
+        captionTitle: 'The Youth Horizon, 2026',
+        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+      }
     ]
   },
-  { 
-    title: 'videography', 
-    tag: 'illustrator', 
+  {
+    title: 'videography',
+    tag: 'illustrator',
     color: 'bg-pink',
     images: [
-      { src: '/video1.jpg', caption: 'Short film thumbnail design' },
-      { src: '/video2.jpg', caption: 'Music video color grading examples' }
+      {
+        src: '/your-image.png',
+        captionTitle: 'The Youth Horizon, 2026',
+        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+      }
     ]
   },
-  { 
-    title: 'miscellaneous', 
-    tag: 'blender', 
+  {
+    title: 'miscellaneous',
+    tag: 'blender',
     color: 'bg-butter',
     images: [
-      { src: '/3d1.jpg', caption: 'My very first 3D donut' },
-      { src: '/3d2.jpg', caption: 'Abstract metallic rendering' }
+      {
+        src: '/your-image.png',
+        captionTitle: 'The Youth Horizon, 2026',
+        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+      }
     ]
-  },
+  }
 ]
 
 function Folder({ project, onClick }: { project: Project, onClick: () => void }) {
@@ -180,12 +199,17 @@ export function Work() {
                   <div key={index} className="flex flex-col items-center gap-3">
                     <img 
                       src={img.src} 
-                      alt={img.caption} 
+                      alt={img.captionTitle} 
                       className="w-full max-w-2xl rounded-xl object-cover shadow-md"
                     />
-                    <p className="font-hand text-xl text-cocoa/80 text-center">
-                      {img.caption}
-                    </p>
+                    <div className="text-center mt-2">
+                      <p className="font-sans font-bold italic text-xl text-cocoa">
+                        {img.captionTitle}
+                      </p>
+                      <p className="font-sans text-lg text-cocoa/80 mt-1">
+                        {img.captionSubtitle}
+                      </p>
+                    </div>
                   </div>
                 ))
               ) : (
