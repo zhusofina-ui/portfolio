@@ -83,7 +83,7 @@ export default function InteractiveWhiteboard() {
         
         {/* Colors Section */}
         <div>
-          <h3 className="text-xs font-bold tracking-widest text-[#4A3323] mb-3 border-b border-[#4A3323]/30 pb-1">COLORS</h3>
+          <h3 className="text-xs tracking-widest text-[#4A3323] mb-3 border-b border-[#4A3323]/30 pb-1">COLOURS</h3>
           <div className="flex flex-wrap gap-3">
             {[
               { id: 'brown', hex: '#4A3323' },
@@ -104,11 +104,11 @@ export default function InteractiveWhiteboard() {
 
         {/* Tools Section */}
         <div>
-          <h3 className="text-xs font-bold tracking-widest text-[#4A3323] mb-3 border-b border-[#4A3323]/30 pb-1">TOOLS</h3>
+          <h3 className="text-xs tracking-widest text-[#4A3323] mb-3 border-b border-[#4A3323]/30 pb-1">TOOLS</h3>
           <div className="flex flex-col gap-3">
             <button 
               onClick={() => setIsEraser(false)}
-              className={`px-4 py-2 rounded-lg border-2 border-[#4A3323] font-bold text-left transition-colors ${
+              className={`px-4 py-2 rounded-lg border-2 border-[#4A3323] text-left transition-colors ${
                 !isEraser ? 'bg-[#4A3323] text-[#FDF8E4]' : 'bg-[#FDF8E4] text-[#4A3323] hover:bg-[#FDF8E4]/80'
               }`}
             >
@@ -116,7 +116,7 @@ export default function InteractiveWhiteboard() {
             </button>
             <button 
               onClick={() => setIsEraser(true)}
-              className={`px-4 py-2 rounded-lg border-2 border-[#4A3323] font-bold text-left transition-colors ${
+              className={`px-4 py-2 rounded-lg border-2 border-[#4A3323] text-left transition-colors ${
                 isEraser ? 'bg-[#4A3323] text-[#FDF8E4]' : 'bg-[#FDF8E4] text-[#4A3323] hover:bg-[#FDF8E4]/80'
               }`}
             >
@@ -127,14 +127,14 @@ export default function InteractiveWhiteboard() {
 
         {/* Actions Section */}
         <div>
-          <h3 className="text-xs font-bold tracking-widest text-[#4A3323] mb-3 border-b border-[#4A3323]/30 pb-1">ACTIONS</h3>
+          <h3 className="text-xs tracking-widest text-[#4A3323] mb-3 border-b border-[#4A3323]/30 pb-1">ACTIONS</h3>
           <div className="flex flex-col gap-3">
-            <button className="px-4 py-2 rounded-lg border-2 border-[#4A3323] bg-[#E5B5C1] text-[#4A3323] font-bold hover:brightness-95 transition-all">
+            <button className="px-4 py-2 rounded-lg border-2 border-[#4A3323] bg-[#E5B5C1] text-[#4A3323] hover:brightness-95 transition-all">
               + Add Note
             </button>
             <button 
               onClick={clearCanvas}
-              className="px-4 py-2 rounded-lg border-2 border-[#4A3323] bg-white text-[#4A3323] font-bold hover:bg-gray-50 transition-all"
+              className="px-4 py-2 rounded-lg border-2 border-[#4A3323] bg-white text-[#4A3323] hover:bg-gray-50 transition-all"
             >
               Clear All
             </button>
