@@ -17,7 +17,7 @@ type Project = {
 const playable: Project[] = [
   {
     title: 'static posts',
-    tag: 'canva',
+    tag: 'i like trying different styles!',
     color: 'bg-pink',
     images: [
       {
@@ -54,7 +54,7 @@ const playable: Project[] = [
   },
   {
     title: 'carousels',
-    tag: 'video / davinci',
+    tag: 'so much information you need multiple slides',
     color: 'bg-butter',
     images: [
       {
@@ -71,7 +71,7 @@ const playable: Project[] = [
   },
   {
     title: 'merchandise',
-    tag: 'audio / experiments',
+    tag: 'i want cool merch too!',
     color: 'bg-blush',
     images: [
       {
@@ -86,7 +86,7 @@ const playable: Project[] = [
 const designs: Project[] = [
   {
     title: 'photography',
-    tag: 'procreate',
+    tag: 'capturing small moments in life',
     color: 'bg-butter',
     images: [
       {
@@ -123,7 +123,7 @@ const designs: Project[] = [
   },
   {
     title: 'videography',
-    tag: 'illustrator',
+    tag: '📷 📷 📷',
     color: 'bg-pink',
     images: [
       {
@@ -135,7 +135,7 @@ const designs: Project[] = [
   },
   {
     title: 'miscellaneous',
-    tag: 'blender',
+    tag: 'i think the website goes in this folder..?',
     color: 'bg-butter',
     images: [
       {
