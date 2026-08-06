@@ -27,7 +27,7 @@ const playable: Project[] = [
       }, 
       {
         src: '/The Youth Horizon Bingo2.png',
-        captionTitle: 'The Youth Horizion, 2026',
+        captionTitle: 'The Youth Horizon, 2026',
         captionSubtitle: 'Canva'
       }, 
       {
