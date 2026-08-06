@@ -29,7 +29,7 @@ export function Contact() {
 
         <div className="mt-10 flex items-center justify-center gap-6 text-2xl text-cocoa/70">
           <a href="#" className="transition-colors hover:text-cocoa" style={{ fontFamily: 'var(--font-geist), sans-serif' }}>
-            @sofinazhu_
+           instagram: @sofinazhu_
           </a>
         </div>
         
