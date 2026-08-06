@@ -2,22 +2,76 @@
 import { useState } from 'react'
 import { Arrow } from '@/components/doodles'
 
+type ProjectImage = {
+  src: string
+  caption: string
+}
+
 type Project = {
   title: string
   tag: string
   color?: string
+  images?: ProjectImage[]
 }
 
 const playable: Project[] = [
-  { title: 'static posts', tag: 'canva', color: 'bg-pink' },
-  { title: 'carousels', tag: 'video / davinci', color: 'bg-butter' },
-  { title: 'merchandise', tag: 'audio / experiments', color: 'bg-blush' },
+  { 
+    title: 'static posts', 
+    tag: 'canva', 
+    color: 'bg-pink',
+    images: [
+      { src: '/post1.jpg', caption: 'My first social media campaign' },
+      { src: '/post2.jpg', caption: 'Some cool typography experiments' }
+    ]
+  },
+  { 
+    title: 'carousels', 
+    tag: 'video / davinci', 
+    color: 'bg-butter',
+    images: [
+      { src: '/Daily Bread Food Bank & The Youth Horizon, 2026.png', caption: 'Daily Bread Food Bank & The Youth Horizon, 2026' },
+      { src: '/carousel2.jpg', caption: 'Step-by-step tutorial layouts' }
+    ]
+  },
+  { 
+    title: 'merchandise', 
+    tag: 'audio / experiments', 
+    color: 'bg-blush',
+    images: [
+      { src: '/merch1.jpg', caption: 'T-shirt design mockup' },
+      { src: '/merch2.jpg', caption: 'Custom sticker pack concepts' }
+    ]
+  },
 ]
 
 const designs: Project[] = [
-  { title: 'photography', tag: 'procreate', color: 'bg-butter' },
-  { title: 'videography', tag: 'illustrator', color: 'bg-pink' },
-  { title: 'miscellaneous', tag: 'blender', color: 'bg-butter' },
+  { 
+    title: 'photography', 
+    tag: 'procreate', 
+    color: 'bg-butter',
+    images: [
+      { src: '/photo1.jpg', caption: 'Portrait lighting study' },
+      { src: '/photo2.jpg', caption: 'Street photography in the city' }
+    ]
+  },
+  { 
+    title: 'videography', 
+    tag: 'illustrator', 
+    color: 'bg-pink',
+    images: [
+      { src: '/video1.jpg', caption: 'Short film thumbnail design' },
+      { src: '/video2.jpg', caption: 'Music video color grading examples' }
+    ]
+  },
+  { 
+    title: 'miscellaneous', 
+    tag: 'blender', 
+    color: 'bg-butter',
+    images: [
+      { src: '/3d1.jpg', caption: 'My very first 3D donut' },
+      { src: '/3d2.jpg', caption: 'Abstract metallic rendering' }
+    ]
+  },
 ]
 
 function Folder({ project, onClick }: { project: Project, onClick: () => void }) {
@@ -120,13 +174,25 @@ export function Work() {
             <p className="mt-2 font-hand text-2xl text-cocoa/70">{activeProject.tag}</p>
 
             {/* Scrollable Work Area */}
-            <div className="mt-8 grid gap-6">
-              <div className="h-80 rounded-xl bg-cocoa/10 flex items-center justify-center text-cocoa/50 font-hand text-xl">
-                Replace this box with Image 1
-              </div>
-              <div className="h-80 rounded-xl bg-cocoa/10 flex items-center justify-center text-cocoa/50 font-hand text-xl">
-                Replace this box with Image 2
-              </div>
+            <div className="mt-8 grid gap-8 pb-8">
+              {activeProject.images && activeProject.images.length > 0 ? (
+                activeProject.images.map((img, index) => (
+                  <div key={index} className="flex flex-col items-center gap-3">
+                    <img 
+                      src={img.src} 
+                      alt={img.caption} 
+                      className="w-full max-w-2xl rounded-xl object-cover shadow-md"
+                    />
+                    <p className="font-hand text-xl text-cocoa/80 text-center">
+                      {img.caption}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <div className="h-80 rounded-xl bg-cocoa/10 flex items-center justify-center text-cocoa/50 font-hand text-xl">
+                  Work coming soon!
+                </div>
+              )}
             </div>
           </div>
         </div>
