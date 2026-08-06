@@ -22,9 +22,9 @@ const playable: Project[] = [
     color: 'bg-pink',
     images: [
       {
-        src: '/your-image.png',
+        src: '/The Youth Horizon Bingo.png',
         captionTitle: 'The Youth Horizon, 2026',
-        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+        captionSubtitle: 'Canva'
       }
     ]
   },
@@ -193,7 +193,7 @@ export function Work() {
             <p className="mt-2 font-hand text-2xl text-cocoa/70">{activeProject.tag}</p>
 
             {/* Scrollable Work Area */}
-            <div className="mt-8 grid gap-8 pb-8">
+            <div className={`mt-8 grid gap-8 pb-8 ${activeProject.title === 'static posts' ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
               {activeProject.images && activeProject.images.length > 0 ? (
                 activeProject.images.map((img, index) => (
                   <div key={index} className="flex flex-col items-center gap-3">
@@ -203,7 +203,7 @@ export function Work() {
                       className="w-full max-w-2xl rounded-xl object-cover shadow-md"
                     />
                     <div className="text-center mt-2">
-                      <p className="font-sans font-bold italic text-xl text-cocoa">
+                      <p className="font-sans italic text-xl text-cocoa">
                         {img.captionTitle}
                       </p>
                       <p className="font-sans text-lg text-cocoa/80 mt-1">
