@@ -12,75 +12,67 @@ interface StickyNote {
 export default function InteractiveWhiteboard() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const [isDrawing, setIsDrawing] = useState(false)
-  const [color, setColor] = useState('#4A3323') // Default Brown
+  const [color, setColor] = useState('#4A3323')
   const [isEraser, setIsEraser] = useState(false)
   const [stickyNotes, setStickyNotes] = useState<StickyNote[]>([])
 
-  // Set up canvas sizing when it loads
+  const lastPos = useRef<{ x: number; y: number }>({ x: 0, y: 0 })
+
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-    if (canvas) {
-      canvas.width = canvas.offsetWidth * 2
-      canvas.height = canvas.offsetHeight * 2
-      const ctx = canvas.getContext('2d')
-      if (ctx) {
-        ctx.scale(2, 2)
-        ctx.lineCap = 'round'
-        ctx.lineJoin = 'round'
-      }
+    const rect = canvas.getBoundingClientRect()
+    canvas.width = rect.width
+    canvas.height = rect.height
+    const ctx = canvas.getContext('2d')
+    if (ctx) {
+      ctx.lineCap = 'round'
+      ctx.lineJoin = 'round'
     }
   }, [])
 
-  // Drawing Functions with exact coordinate tracking
   const startDrawing = (e: MouseEvent<HTMLCanvasElement> | TouchEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const rect = canvas.getBoundingClientRect()
+
+    const clientX = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX
+    const clientY = 'touches' in e ? e.touches[0].clientY : (e as MouseEvent).clientY
+
     setIsDrawing(true)
-    draw(e)
+    lastPos.current = {
+      x: clientX - rect.left,
+      y: clientY - rect.top,
+    }
   }
 
   const stopDrawing = () => {
     setIsDrawing(false)
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    if (ctx) ctx.beginPath()
   }
 
   const draw = (e: MouseEvent<HTMLCanvasElement> | TouchEvent<HTMLCanvasElement>) => {
     if (!isDrawing) return
     const canvas = canvasRef.current
-    const ctx = canvas?.getContext('2d')
-    if (!canvas || !ctx) return
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
 
     const rect = canvas.getBoundingClientRect()
-    const scaleX = canvas.width / rect.width
-    const scaleY = canvas.height / rect.height
+    const clientX = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX
+    const clientY = 'touches' in e ? e.touches[0].clientY : (e as MouseEvent).clientY
 
-    let clientX, clientY
-    if ('touches' in e) {
-      clientX = e.touches[0].clientX
-      clientY = e.touches[0].clientY
-    } else {
-      clientX = (e as MouseEvent).clientX
-      clientY = (e as MouseEvent).clientY
-    }
+    const currentX = clientX - rect.left
+    const currentY = clientY - rect.top
 
-    const x = (clientX - rect.left) * (scaleX / 2)
-    const y = (clientY - rect.top) * (scaleY / 2)
-
-    ctx.lineWidth = isEraser ? 20 : 2
     ctx.strokeStyle = isEraser ? '#FDF8E4' : color
+    ctx.lineWidth = isEraser ? 20 : 3
 
-    if (isEraser) {
-      ctx.globalCompositeOperation = 'destination-out'
-    } else {
-      ctx.globalCompositeOperation = 'source-over'
-    }
-
-    ctx.lineTo(x, y)
-    ctx.stroke()
     ctx.beginPath()
-    ctx.moveTo(x, y)
+    ctx.moveTo(lastPos.current.x, lastPos.current.y)
+    ctx.lineTo(currentX, currentY)
+    ctx.stroke()
+
+    lastPos.current = { x: currentX, y: currentY }
   }
 
   const clearCanvas = () => {
@@ -90,11 +82,9 @@ export default function InteractiveWhiteboard() {
     if (ctx) {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
     }
-    // Clear all sticky notes as well
     setStickyNotes([])
   }
 
-  // Add Note Handler: Prompts user for message and drops a sticky note on the board
   const handleAddNote = () => {
     const userText = prompt('Leave a note message:')
     if (!userText) return
@@ -102,14 +92,13 @@ export default function InteractiveWhiteboard() {
     const newNote: StickyNote = {
       id: Date.now(),
       text: userText,
-      x: Math.floor(Math.random() * 50) + 20, // random percentage offset within the board
+      x: Math.floor(Math.random() * 50) + 20,
       y: Math.floor(Math.random() * 50) + 20,
     }
 
     setStickyNotes((prev) => [...prev, newNote])
   }
 
-  // Update text of a specific sticky note if typed directly on it
   const handleNoteChange = (id: number, newText: string) => {
     setStickyNotes((prev) =>
       prev.map((note) => (note.id === id ? { ...note, text: newText } : note))
@@ -117,19 +106,25 @@ export default function InteractiveWhiteboard() {
   }
 
   return (
-    <div className="w-full bg-[#FDF8E4] py-32">
-      <div className="flex flex-col md:flex-row gap-8 w-full max-w-5xl items-start justify-center mx-auto">
+    <div className="w-full bg-[#FDF8E4] py-20 flex flex-col items-center gap-10">
+      
+      {/* TITLE BANNER */}
+      <div className="relative inline-block px-12 py-3.5 bg-[#F2D4DA] rounded-xl shadow-[4px_4px_0px_#4A3323] border-2 border-[#4A3323] text-center rotate-[-1deg]">
+        <h2 className="text-3xl font-display text-[#4A3323] tracking-wide">doodle board</h2>
+      </div>
+
+      <div className="flex flex-col md:flex-row gap-8 w-full max-w-5xl items-start justify-center mx-auto px-4">
 
         {/* LEFT TOOLBAR */}
         <div className="w-full md:w-64 bg-[#F2D4DA] p-6 rounded-2xl border-[3px] border-[#4A3323] shadow-[6px_6px_0px_#4A3323] flex flex-col gap-6">
 
-          {/* Colors Section */}
+          {/* Colours Section */}
           <div>
             <h3 className="text-xs tracking-widest text-[#4A3323] mb-3 border-b border-[#4A3323]/30 pb-1">COLOURS</h3>
             <div className="flex flex-wrap gap-3">
               {[
                 { id: 'brown', hex: '#4A3323' },
-                { id: 'pink', hex: '#F2D4DA' },
+                { id: 'pink', hex: '#E5B5C1' },
                 { id: 'white', hex: '#FFFFFF' },
               ].map((c) => (
                 <button
@@ -192,21 +187,20 @@ export default function InteractiveWhiteboard() {
         <div className="flex-1 w-full relative group">
           <div className="absolute inset-0 bg-[#E8E1CD] rounded-2xl translate-x-3 translate-y-3" />
 
-          {/* The actual drawing board container */}
           <div className="relative bg-[#FDF8E4] p-3 rounded-2xl border-[3px] border-[#4A3323] w-full h-125 overflow-hidden">
             
-            {/* STICKY NOTES LAYER OVER THE BOARD */}
+            {/* STICKY NOTES LAYER */}
             {stickyNotes.map((note) => (
               <div
                 key={note.id}
                 style={{ top: `${note.y}%`, left: `${note.x}%` }}
-                className="absolute w-36 bg-[#FFF4D0] border-2 border-[#4A3323] p-3 shadow-md rounded-md transform rotate-[-2deg] z-20 flex flex-col gap-1 cursor-move"
+                className="absolute w-36 bg-[#FFF4D0] border-2 border-[#4A3323] p-3 shadow-md rounded-md transform rotate-[-2deg] z-20 flex flex-col gap-1"
               >
                 <div className="w-full h-2 bg-[#EED89C] rounded-sm mb-1" />
                 <textarea
                   value={note.text}
                   onChange={(e) => handleNoteChange(note.id, e.target.value)}
-                  className="w-full bg-transparent style={{ fontSize: '100px' }} text-[#4A3323] resize-none focus:outline-none font-hand"
+                  className="w-full bg-transparent text-sm text-[#4A3323] resize-none focus:outline-none font-hand"
                   rows={3}
                 />
               </div>
@@ -217,7 +211,7 @@ export default function InteractiveWhiteboard() {
               ref={canvasRef}
               onMouseDown={startDrawing}
               onMouseUp={stopDrawing}
-              onMouseOut={stopDrawing}
+              onMouseLeave={stopDrawing}
               onMouseMove={draw}
               onTouchStart={startDrawing}
               onTouchEnd={stopDrawing}
