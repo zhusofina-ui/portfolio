@@ -148,7 +148,7 @@ export default function InteractiveWhiteboard() {
         <div className="absolute inset-0 bg-[#E8E1CD] rounded-2xl translate-x-3 translate-y-3" />
         
         {/* The actual drawing board */}
-        <div className="relative bg-[#FDF8E4] p-3 rounded-2xl border-[3px] border-[#4A3323] w-full h-[500px]">
+        <div className="relative bg-[#FDF8E4] p-3 rounded-2xl border-[3px] border-[#4A3323] w-full h-125">
           <canvas
             ref={canvasRef}
             onMouseDown={startDrawing}
