@@ -107,7 +107,7 @@ export default function InteractiveWhiteboard() {
 
   return (
     <div className="w-full bg-[#FDF8E4] py-20 flex flex-col items-center gap-10">
-      
+
       {/* TITLE BANNER */}
       <div className="relative inline-block px-12 py-3.5 bg-[#F2D4DA] rounded-xl shadow-[4px_4px_0px_#4A3323] border-2 border-[#4A3323] text-center rotate-[-1deg]">
         <h2 className="text-6xl font-display text-[#4A3323] tracking-wide">~leave a doodle~</h2>
@@ -130,9 +130,8 @@ export default function InteractiveWhiteboard() {
                 <button
                   key={c.id}
                   onClick={() => { setColor(c.hex); setIsEraser(false); }}
-                  className={`w-8 h-8 rounded-full border-2 transition-transform ${
-                    color === c.hex && !isEraser ? 'scale-125 ring-2 ring-offset-2 ring-[#4A3323]' : 'hover:scale-110'
-                  }`}
+                  className={`w-8 h-8 rounded-full border-2 transition-transform ${color === c.hex && !isEraser ? 'scale-125 ring-2 ring-offset-2 ring-[#4A3323]' : 'hover:scale-110'
+                    }`}
                   style={{ backgroundColor: c.hex }}
                 />
               ))}
@@ -145,17 +144,15 @@ export default function InteractiveWhiteboard() {
             <div className="flex flex-col gap-2">
               <button
                 onClick={() => setIsEraser(false)}
-                className={`px-4 py-2 rounded-lg border-2 border-[#4A3323] text-left transition-colors ${
-                  !isEraser ? 'bg-[#4A3323] text-[#FDF8E4]' : 'bg-[#FDF8E4] text-[#4A3323] hover:bg-[#FDF8E4]/80'
-                }`}
+                className={`px-4 py-2 rounded-lg border-2 border-[#4A3323] text-left transition-colors ${!isEraser ? 'bg-[#4A3323] text-[#FDF8E4]' : 'bg-[#FDF8E4] text-[#4A3323] hover:bg-[#FDF8E4]/80'
+                  }`}
               >
                 Pencil
               </button>
               <button
                 onClick={() => setIsEraser(true)}
-                className={`px-4 py-2 rounded-lg border-2 border-[#4A3323] text-left transition-colors ${
-                  isEraser ? 'bg-[#4A3323] text-[#FDF8E4]' : 'bg-[#FDF8E4] text-[#4A3323] hover:bg-[#FDF8E4]/80'
-                }`}
+                className={`px-4 py-2 rounded-lg border-2 border-[#4A3323] text-left transition-colors ${isEraser ? 'bg-[#4A3323] text-[#FDF8E4]' : 'bg-[#FDF8E4] text-[#4A3323] hover:bg-[#FDF8E4]/80'
+                  }`}
               >
                 Eraser
               </button>
@@ -188,7 +185,7 @@ export default function InteractiveWhiteboard() {
           <div className="absolute inset-0 bg-[#E8E1CD] rounded-2xl translate-x-3 translate-y-3" />
 
           <div className="relative bg-[#FDF8E4] p-3 rounded-2xl border-[3px] border-[#4A3323] w-full h-125 overflow-hidden">
-            
+
             {/* STICKY NOTES LAYER */}
             {stickyNotes.map((note) => (
               <div
