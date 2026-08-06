@@ -54,7 +54,7 @@ const playable: Project[] = [
   },
   {
     title: 'carousels',
-    tag: 'so much information you need multiple slides',
+    tag: 'so much design you need multiple slides',
     color: 'bg-butter',
     images: [
       {
@@ -76,8 +76,8 @@ const playable: Project[] = [
     images: [
       {
         src: '/your-image.png',
-        captionTitle: 'The Youth Horizon, 2026',
-        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+        captionTitle: 'new designs coming soon!',
+        captionSubtitle: 'come back later~'
       }
     ]
   }
@@ -128,8 +128,8 @@ const designs: Project[] = [
     images: [
       {
         src: '/your-image.png',
-        captionTitle: 'The Youth Horizon, 2026',
-        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+        captionTitle: 'new content coming soon!',
+        captionSubtitle: 'come back later~'
       }
     ]
   },
@@ -140,8 +140,8 @@ const designs: Project[] = [
     images: [
       {
         src: '/your-image.png',
-        captionTitle: 'The Youth Horizon, 2026',
-        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+        captionTitle: 'new content coming soon!',
+        captionSubtitle: 'come back later~'
       }
     ]
   }
