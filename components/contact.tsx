@@ -27,11 +27,17 @@ export function Contact() {
 
   <Squiggle className="mx-auto mt-12 h-6 w-40 text-pink" />
 
-  <div className="mt-10 flex items-center justify-center gap-6 text-2xl text-cocoa/70">
+  <div className="mt-10 flex flex-col items-center justify-center gap-6 text-2xl text-cocoa/70">
     <a href="#" className="transition-colors hover:text-cocoa" style={{ fontFamily: 'var(--font-geist), sans-serif' }}>
       instagram: @sofinazhu_
-    </a>
-  </div>
+  </a>
+  <span 
+    className="text-lg text-cocoa/60" 
+    style={{ fontFamily: 'var(--font-geist), sans-serif' }}
+  >
+    let&apos;s listen to music together!
+  </span>
+</div>
 
    <div className="mt-8 mx-auto w-full max-w-md rounded-2xl border-2 border-[#4A3323] bg-[#4A3323] overflow-hidden shadow-[4px_4px_0px_#4A3323]">
   <iframe
