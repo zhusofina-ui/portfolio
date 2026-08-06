@@ -30,14 +30,14 @@ export function Hero() {
             </h1>
 
             {/* sticky note */}
-            <motion.div 
-  drag 
-  dragMomentum={false}
-  whileHover={{ y: -8, rotate: 0 }}
-  className="mt-10 inline-block absolute z-[99] cursor-grab active:cursor-grabbing"
->
+            <motion.div
+              drag
+              dragMomentum={false}
+              whileHover={{ y: -8, rotate: 0 }}
+              className="mt-10 inline-block absolute z-[99] cursor-grab active:cursor-grabbing"
+            >
               <div className="relative w-44 -rotate-3 bg-butter/80 p-5 pr-16 shadow-md shadow-cocoa/20 border-2 border-[#4A3323]">
-              <span className="absolute -top-2 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-pink border-2 border-cocoa" />
+                <span className="absolute -top-2 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-pink border-2 border-cocoa" />
                 <p className="text-base leading-tight text-cocoa" style={{ fontFamily: 'var(--font-geist), sans-serif' }}>
                   fancy seeing you here
                 </p>
@@ -52,7 +52,7 @@ export function Hero() {
               whileHover={{ scale: 1.05 }}
               src="https://plain-wnam-prod-public.komododecks.com/202608/05/wSG5DQP9QWFDGWIg8I6K/image.png"
               alt="My portrait"
-              className="w-full max-w-110 translate-x-10 h-auto object-contain drop-shadow-xl rotate-5 cursor-grab active:cursor-grabbing relative z-[99]"
+              className="w-full max-w-110 translate-x-75 h-auto object-contain drop-shadow-xl rotate-5 cursor-grab active:cursor-grabbing relative z-[99]"
             />
           </div>
         </div>
