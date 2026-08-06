@@ -91,33 +91,33 @@ const designs: Project[] = [
     images: [
       {
         src: '/IMG_7250.JPG',
-        captionTitle: 'The Youth Horizon, 2026',
-        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
-      },
-      {
-        src: '/IMG_7252.JPG',
-        captionTitle: 'The Youth Horizon, 2026',
-        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
-      },
-      {
-        src: '/IMG_7359.JPG',
-        captionTitle: 'The Youth Horizon, 2026',
-        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
-      },
-      {
-        src: '/IMG_7284.JPG',
-        captionTitle: 'The Youth Horizon, 2026',
-        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+        captionTitle: 'untitled, 2026',
+        captionSubtitle: 'Canon Digital IXUS 900 Ti'
       },
       {
         src: '/IMG_7366.JPG',
-        captionTitle: 'The Youth Horizon, 2026',
-        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+        captionTitle: 'what a pretty lamp, 2026',
+        captionSubtitle: 'Canon Digital IXUS 900 Ti'
+      },
+      {
+        src: '/IMG_7359.JPG',
+        captionTitle: 'it is decidedly so, 2026',
+        captionSubtitle: 'Canon Digital IXUS 900 Ti'
+      },
+      {
+        src: '/IMG_7284.JPG',
+        captionTitle: 'untitled, 2026',
+        captionSubtitle: 'Canon Digital IXUS 900 Ti'
+      },
+      {
+        src: '/IMG_7252.JPG',
+        captionTitle: 'all is smooth sailing, 2026',
+        captionSubtitle: 'Canon Digital IXUS 900 Ti'
       },
       {
         src: '/IMG_7432.JPG',
-        captionTitle: 'The Youth Horizon, 2026',
-        captionSubtitle: 'Adobe Photoshop CC 2025 & Canva'
+        captionTitle: '美国人, 2026',
+        captionSubtitle: 'Canon Digital IXUS 900 Ti'
       }
     ]
   },
@@ -247,7 +247,7 @@ export function Work() {
             <p className="mt-2 font-hand text-2xl text-cocoa/70">{activeProject.tag}</p>
 
             {/* Scrollable Work Area */}
-            <div className={`mt-8 grid gap-8 pb-8 ${activeProject.title === 'static posts' ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
+            <div className={`mt-8 grid gap-8 pb-8 ${activeProject.title === 'static posts' || activeProject.title === 'photography' ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
               {activeProject.images && activeProject.images.length > 0 ? (
                 activeProject.images.map((img, index) => (
                   <div key={index} className="flex flex-col items-center gap-3">
