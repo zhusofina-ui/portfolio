@@ -2,10 +2,10 @@ import { StarDoodle, Sparkle } from '@/components/doodles'
 
 const paragraphs = [
   "Hey! I'm sofina :)",
-  "welcome to the part of the website where i'm supposed to talk about myself. i'm a multidisciplinary creative who loves making things that feel playful and nostalgic. jack of all trades (and a master of... some).",
-  'i love designing and attend markham district high school! i&apos;m hoping to end up making memorable things with memorable people one day.',
+  "welcome to the part of the website where i'm supposed to talk about myself. i love being creative and making things that feel playful and nostalgic. jack of all trades (and a master of... some).",
+  'i love designing and attend markham district high school! im hoping to end up making memorable things with memorable people one day.',
   "the software i use includes (but isn't limited to) Canva, XXXXXX",
-  "i'm here to make cool things with cool people, so hit me up. ",
+  "i'm here to make cool things with cool people! ",
 ]
 
 export function About() {
