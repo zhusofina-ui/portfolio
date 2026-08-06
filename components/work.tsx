@@ -10,7 +10,6 @@ type ProjectImage = {
 
 type Project = {
   title: string
-  tag: string
   color?: string
   images?: ProjectImage[]
 }
