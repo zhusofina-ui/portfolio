@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Fredoka, Caveat, Mystery_Quest, Roboto, Open_Sans, Playfair_Display, Inconsolata, Geist } from 'next/font/google'
+import { Fredoka, Caveat, Mystery_Quest } from 'next/font/google'
 import './globals.css'
 
 const fredoka = Fredoka({
@@ -19,36 +19,6 @@ const mysteryQuest = Mystery_Quest({
   subsets: ['latin'],
   variable: '--font-display',
   weight: ['400'],
-})
-
-const roboto = Roboto({
-  subsets: ['latin'],
-  variable: '--font-roboto',
-  weight: ['400', '500', '700'],
-})
-
-const openSans = Open_Sans({
-  subsets: ['latin'],
-  variable: '--font-open-sans',
-  weight: ['400', '500', '600', '700'],
-})
-
-const playfairDisplay = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-playfair',
-  weight: ['400', '500', '600', '700'],
-})
-
-const inconsolata = Inconsolata({
-  subsets: ['latin'],
-  variable: '--font-inconsolata',
-  weight: ['400', '700'],
-})
-
-const geist = Geist({
-  subsets: ['latin'],
-  variable: '--font-geist',
-  weight: ['400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
@@ -71,7 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fredoka.variable} ${caveat.variable} ${mysteryQuest.variable} ${roboto.variable} ${openSans.variable} ${playfairDisplay.variable} ${inconsolata.variable} ${geist.variable} bg-background`}
+      className={`${fredoka.variable} ${caveat.variable} ${mysteryQuest.variable} bg-background`}
     >
       <body className="font-sans antialiased">
         {children}

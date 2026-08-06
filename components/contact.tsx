@@ -1,4 +1,4 @@
-import { Squiggle } from '@/components/doodles'
+import { Heart, Squiggle } from '@/components/doodles'
 
 export function Contact() {
   return (
@@ -8,9 +8,10 @@ export function Contact() {
       aria-labelledby="contact-heading"
     >
       <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
+        <Heart className="mx-auto mb-6 h-10 w-10 text-pink" />
         <h2
           id="contact-heading"
-          className="text-4xl font-normal leading-tight text-cocoa sm:text-6xl"
+          className="text-4xl font-bold leading-tight text-cocoa sm:text-6xl"
         >
           Let&apos;s build something{' '}
           <span className="font-hand text-5xl text-butter drop-shadow-sm sm:text-7xl">
@@ -19,20 +20,31 @@ export function Contact() {
         </h2>
 
         <a
-          href="mailto:zhusofina@gmail.com"
-          className="mt-10 inline-block border-b-4 border-cocoa/50 pb-1 text-2xl font-normal text-cocoa transition-colors hover:border-pink hover:text-pink sm:text-4xl"
+          href="mailto:hello@lulu.studio"
+          className="mt-10 inline-block border-b-4 border-cocoa/50 pb-1 text-3xl font-semibold text-cocoa transition-colors hover:border-pink hover:text-pink sm:text-5xl"
         >
-          zhusofina@gmail.com
+          hello@lulu.studio
         </a>
 
         <Squiggle className="mx-auto mt-12 h-6 w-40 text-pink" />
 
-        <div className="mt-10 flex items-center justify-center gap-6 text-2xl text-cocoa/70">
-          <a href="#" className="transition-colors hover:text-cocoa" style={{ fontFamily: 'var(--font-geist), sans-serif' }}>
-            @sofinazhu_
+        <div className="mt-10 flex items-center justify-center gap-6 font-hand text-2xl text-cocoa/70">
+          <a href="#" className="transition-colors hover:text-cocoa">
+            instagram
+          </a>
+          <span aria-hidden="true">·</span>
+          <a href="#" className="transition-colors hover:text-cocoa">
+            behance
+          </a>
+          <span aria-hidden="true">·</span>
+          <a href="#" className="transition-colors hover:text-cocoa">
+            youtube
           </a>
         </div>
-        
+
+        <p className="mt-16 text-sm text-cocoa/50">
+          made with love · a playful portfolio template
+        </p>
       </div>
     </section>
   )

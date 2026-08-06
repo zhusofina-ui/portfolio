@@ -15,7 +15,7 @@ export function Navbar() {
           href="#hero"
           className="text-2xl font-bold tracking-tight text-cocoa transition-transform hover:-rotate-3"
         >
-          sofina<span className="text-pink">.</span>
+          lulu<span className="text-pink">.</span>
         </a>
         <ul className="flex items-center gap-6 text-base font-medium text-cocoa/80 sm:gap-9 sm:text-lg">
           {links.map((link) => (

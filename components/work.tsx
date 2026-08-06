@@ -7,15 +7,15 @@ type Project = {
 }
 
 const playable: Project[] = [
-  { title: 'static posts', tag: 'canva', color: 'bg-pink' },
-  { title: 'carousels', tag: 'video / davinci', color: 'bg-butter' },
-  { title: 'merchandise', tag: 'audio / experiments', color: 'bg-blush' },
+  { title: 'animations', tag: 'motion / after effects', color: 'bg-pink' },
+  { title: 'edits', tag: 'video / davinci', color: 'bg-butter' },
+  { title: 'sound', tag: 'audio / experiments', color: 'bg-blush' },
 ]
 
 const designs: Project[] = [
-  { title: 'photography', tag: 'procreate', color: 'bg-butter' },
-  { title: 'videography', tag: 'illustrator', color: 'bg-pink' },
-  { title: 'miscellaneous', tag: 'blender', color: 'bg-butter' },
+  { title: 'illustrations', tag: 'procreate', color: 'bg-butter' },
+  { title: 'brand kits', tag: 'illustrator', color: 'bg-pink' },
+  { title: '3D scenes', tag: 'blender', color: 'bg-blush' },
 ]
 
 function Folder({ project }: { project: Project }) {
@@ -79,15 +79,15 @@ export function Work() {
               id="work-heading"
               className="font-display text-4xl text-cream sm:text-5xl"
             >
-              work station
+              work - station
             </h2>
           </div>
         </div>
 
         <div className="grid gap-12 md:grid-cols-2">
-          <Column heading="designs" projects={playable} />
+          <Column heading="playable content (open folders!)" projects={playable} />
           <Column
-            heading="content"
+            heading="drawings and designs (click to open!)"
             projects={designs}
           />
         </div>

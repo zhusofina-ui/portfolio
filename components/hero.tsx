@@ -1,12 +1,11 @@
-"use client"
-import { motion } from "framer-motion"
+import Image from 'next/image'
 import { Sparkle, StarDoodle } from '@/components/doodles'
 
 export function Hero() {
   return (
     <section
       id="hero"
-      className="paper paper-margin relative"
+      className="paper paper-margin relative overflow-hidden"
       aria-label="Welcome"
     >
       <div className="relative mx-auto min-h-[88vh] max-w-6xl px-5 pb-16 pt-10 sm:px-8">
@@ -30,29 +29,29 @@ export function Hero() {
             </h1>
 
             {/* sticky note */}
-            <motion.div
-              drag
-              dragMomentum={false}
-              whileHover={{ y: -8, rotate: 0 }}
-              className="mt-10 inline-block absolute z-[99] cursor-grab active:cursor-grabbing"
-            >
-              <div className="relative w-44 -rotate-3 bg-butter/80 p-5 pr-16 shadow-md shadow-cocoa/20 border-2 border-[#4A3323]">
-                <span className="absolute -top-2 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-pink border-2 border-cocoa" />
-                <p className="text-base leading-tight text-cocoa" style={{ fontFamily: 'var(--font-geist), sans-serif' }}>
+            <div className="mt-10 inline-block">
+              <div className="relative w-44 -rotate-3 bg-butter/80 p-5 shadow-md shadow-cocoa/20">
+                <span className="absolute -top-2 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-pink" />
+                <p className="font-hand text-2xl leading-tight text-cocoa">
                   fancy seeing you here
                 </p>
               </div>
-            </motion.div>
+            </div>
           </div>
-          {/* Right Side Image Column */}
-          <div className="relative z-10 flex justify-center items-center order-1 md:order-2">
-            <motion.img
-              drag
-              dragMomentum={false}
-              whileHover={{ scale: 1.05 }}
-              src="https://plain-wnam-prod-public.komododecks.com/202608/05/wSG5DQP9QWFDGWIg8I6K/image.png"
-              alt="My portrait"
-              className="w-full max-w-110 translate-x-75 h-auto object-contain drop-shadow-xl rotate-5 cursor-grab active:cursor-grabbing relative z-[99]"
+
+          {/* illustration */}
+          <div className="relative order-1 flex justify-center md:order-2">
+            <div
+              aria-hidden="true"
+              className="absolute h-64 w-64 rounded-full bg-pink/70 blur-2xl sm:h-80 sm:w-80"
+            />
+            <Image
+              src="/hero-character.png"
+              alt="Illustrated character sitting on a pink orb, welcoming visitors to the portfolio"
+              width={520}
+              height={620}
+              priority
+              className="relative h-auto w-[280px] rotate-1 rounded-[2rem] shadow-xl shadow-cocoa/15 ring-4 ring-card sm:w-[360px] lg:w-[440px]"
             />
           </div>
         </div>
