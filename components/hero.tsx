@@ -65,7 +65,7 @@ export function Hero() {
     whileHover={{ scale: 1.05 }}
     src="/finapic.jpeg"  
     alt="My photo image"
-    className="absolute w-[300px] translate-x-110 translate-y-20 h-auto object-contain drop-shadow-xl -rotate-8 cursor-grab active:cursor-grabbing z-100"
+    className="absolute w-[300px] translate-x-110 translate-y-20 h-auto object-contain drop-shadow-xl -rotate-8 cursor-grab active:cursor-grabbing z-0"
     />
     <motion.img
               drag
