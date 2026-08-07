@@ -136,6 +136,19 @@ export function Hero() {
         click to view my workstation!
       </span>
 
+      {/* Lace */}
+<img 
+  src="/download (9).png" 
+  alt="New loose photo" 
+  className="absolute top-90 right-160 w-110 h-auto object-cover rounded-[2rem] rotate-90 z-10" 
+/>
+
+<img 
+  src="/download (9).png" 
+  alt="New loose photo" 
+  className="absolute top-90 w-110 h-auto object-cover rounded-[2rem] rotate-90 z-10" 
+/>
+
     </motion.div>
   </Link>
 </div>
