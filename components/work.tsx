@@ -145,7 +145,7 @@ const designs: Project[] = [
   },
   {
     title: 'miscellaneous',
-    tag: 'i think the website goes in this folder..?',
+    tag: 'this cute website goes here too!',
     color: 'bg-butter',
     images: [
       {

@@ -45,9 +45,15 @@ export function About() {
   <img 
     src="/abtmepic.jpg" 
     alt="Picture of me" 
-    className="-mt-100 translate-x-42 w-65 h-auto object-cover rounded-[2rem] rotate-5 shadow-lg border-4 border-white/50"
+    className="-mt-100 translate-x-90 w-65 h-auto object-cover rounded-[2rem] rotate-5 shadow-lg border-4 border-white/50"
+  />
+<img 
+    src="/abtmepic2.jpg" 
+    alt="Second picture" 
+    className="-mt-70 -translate-x-[830px] w-85 h-auto object-cover rounded-[2rem] -rotate-10 shadow-lg border-4 border-white/50"
   />
 </div>
+
     </section>
   )
 }
