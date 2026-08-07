@@ -53,7 +53,7 @@ export function Hero() {
               <div className="relative w-44 -rotate-3 bg-butter/80 p-5 pr-16 shadow-md shadow-cocoa/20 border-2 border-[#4A3323]">
                 <span className="absolute -top-2 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-pink border-2 border-cocoa" />
                 <p className="text-base leading-tight text-cocoa" style={{ fontFamily: 'var(--font-geist), sans-serif' }}>
-                  guess we picked the same spot today ~
+                  this portfolio is best viewed on desktop!
                 </p>
               </div>
             </motion.div>
