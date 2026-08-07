@@ -19,10 +19,10 @@ export function Contact() {
   </h2>
 
   <a
-    href="mailto:zhusofina@gmail.com"
+    href="mailto:sofinazhu2023@gmail.com"
     className="mt-10 inline-block border-b-4 border-cocoa/50 pb-1 text-2xl font-normal text-cocoa transition-colors hover:border-pink hover:text-pink sm:text-4x"
   >
-    zhusofina@gmail.com
+    sofinazhu2023@gmail.com
   </a>
 
   <Squiggle className="mx-auto mt-12 h-6 w-40 text-pink" />
