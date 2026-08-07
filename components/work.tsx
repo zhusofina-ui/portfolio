@@ -164,12 +164,12 @@ const designs: Project[] = [
         captionSubtitle: ''
     },
     {
-        src: 'flower1.png',
+        src: 'flower2.png',
         captionTitle: ' pinkie pie',
         captionSubtitle: 'watercolour, Ø 20 cm'
     },
     {
-        src: 'flower2.png',
+        src: 'flower1.png',
         captionTitle: 'kaleidoscope',
         captionSubtitle: 'watercolour, Ø 20cm'
     }
