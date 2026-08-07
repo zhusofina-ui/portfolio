@@ -52,7 +52,7 @@ const geist = Geist({
 })
 
 export const metadata: Metadata = {
-  title: 'lulu. — a playful creative portfolio',
+  title: 'sofinas portfolio',
   description:
     'A whimsical, scrapbook-style portfolio template for illustrators, designers, and multidisciplinary creatives.',
   generator: 'v0.app',
