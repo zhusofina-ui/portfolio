@@ -157,7 +157,23 @@ const designs: Project[] = [
         src: 'sofinazhu (1)_page-0001.jpg',
         captionTitle: 'check out my resume!',
         captionSubtitle: ''
-      }
+      },
+      {
+        src: 'xxx.jpg',
+        captionTitle: '',
+        captionSubtitle: ''
+    },
+    {
+        src: 'flower1.png',
+        captionTitle: ' pinkie pie',
+        captionSubtitle: 'watercolour, Ø 20 cm'
+    },
+    {
+        src: 'flower2.png',
+        captionTitle: 'kaleidoscope',
+        captionSubtitle: 'watercolour, Ø 20cm'
+    }
+
     ]
   }
 ]
