@@ -2,6 +2,7 @@
 import { motion } from "framer-motion"
 import { Sparkle, StarDoodle } from '@/components/doodles'
 import { useState } from 'react'
+import Link from 'next/link';
 
 export function Hero() {
   const [isSnapping, setIsSnapping] = useState(false)
