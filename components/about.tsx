@@ -6,8 +6,7 @@ const paragraphs = [
   'im hoping to end up making memories with memorable people one day!',
   "for softwares, i mostly use Canva, but im working on expanding towards Adobe and video editing softwares (davinci, capcut, etc)",
   "i'm here to make cool things with cool people (thats you!) thanks for clicking around and have fun exploring my site! ",
-  "<em>(as seen in DECA & HOSA chapters, The Youth Horizon, Girls in CS & more!)</em>"]
-
+]
 export function About() {
   return (
     <section
