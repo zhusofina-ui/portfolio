@@ -124,34 +124,41 @@ export function Hero() {
         transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.1 }}
       />
 
-      {/* Main Folder Image (Front) */}
+      {/*  Folder */}
       <img 
         src="/folder.png" 
         alt="My Work Folder" 
         className="relative bottom-30 -right-80 -rotate-90 z-10 w-full h-auto drop-shadow-3xl"
       />
 
-      {/* Cute Hand-drawn text on the folder */}
+      {/* text on the folder */}
       <span className="absolute bottom-80 -right-130 -translate-x-1/2 -translate-y-1/2 z-20 font-display text-cocoa text-3xl pointer-events-none -rotate-3 w-full text-center">
         click to view my workstation!
       </span>
+      </motion.div>
+
+    </Link>
+  </div>
 
       {/* Lace */}
-<img 
+  <img 
   src="/download (9).png" 
   alt="New loose photo" 
-  className="absolute top-90 right-160 w-110 h-auto object-cover rounded-[2rem] rotate-90 z-10" 
+  className="absolute top-150 right-40 w-110 h-auto object-cover rounded-[2rem] rotate-90 z-10" 
 />
 
 <img 
   src="/download (9).png" 
   alt="New loose photo" 
-  className="absolute top-90 w-110 h-auto object-cover rounded-[2rem] rotate-90 z-10" 
+  className="absolute top-150 left-195 w-110 h-auto object-cover rounded-[2rem] rotate-90 z-10" 
 />
 
-    </motion.div>
-  </Link>
-</div>
-    </section>
+<img 
+  src="/download (9).png" 
+  alt="New loose photo" 
+  className="absolute top-150 left-15 w-110 h-auto object-cover rounded-[2rem] rotate-90 z-10" 
+/>
+
+   </section>
   )
 }
