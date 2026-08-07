@@ -49,6 +49,11 @@ const playable: Project[] = [
         src: 'TYH Kahoot Poster - Sofina Zhu.png',
         captionTitle: 'The Youth Horizon, 2026',
         captionSubtitle: 'Canva'
+      },
+      {
+        src: 'csacollab.png',
+        captionTitle: 'Canadian Scholars Association & The Youth Horizon, 2026',
+        captionSubtitle: 'Canva'
       }
     ]
   },
