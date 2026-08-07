@@ -30,7 +30,7 @@ export function Hero() {
   
   src={isSnapping ? "/download (5).png" : "/download (6).png"}
   alt="Movie Clapboard"
-  className="absolute -top-50 -left-70 w-[450px] h-auto object-contain pointer-events-auto z-[-10] opacity-70 -rotate-15 cursor-pointer"
+  className="absolute -top-60 -left-77 w-[450px] h-auto object-contain pointer-events-auto z-[-10] opacity-70 -rotate-15 cursor-pointer"
 />
             <h1 className="font-display leading-[0.9] text-cocoa pointer-events-none">
               <span className="block text-6xl sm:text-7xl lg:text-8xl">welcome</span>
@@ -67,6 +67,14 @@ export function Hero() {
               alt="My portrait"
               className="w-full max-w-150 translate-x-170 h-auto object-contain drop-shadow-xl rotate-5 cursor-grab active:cursor-grabbing relative z-[-5]"
             />
+            <motion.img
+    drag
+    dragMomentum={false}
+    whileHover={{ scale: 1.05 }}
+    src="/finapic.jpeg"  
+    alt="My photo image"
+    className="absolute w-[700px] translate-x-250 h-auto object-contain drop-shadow-xl -rotate-6 cursor-grab active:cursor-grabbing z-10"
+  />
           </div>
         </div>
       </div>
