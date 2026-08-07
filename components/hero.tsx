@@ -28,9 +28,9 @@ export function Hero() {
   
   onPointerDownCapture={() => setIsSnapping(!isSnapping)}
   
-  src={isSnapping ? "/download (6).png" : "/download (5).png"}
+  src={isSnapping ? "/download (5).png" : "/download (6).png"}
   alt="Movie Clapboard"
-  className="absolute -top-60 -left-5 w-[480px] h-auto object-contain pointer-events-auto z-[-10] opacity-70 -rotate-15 cursor-pointer"
+  className="absolute -top-50 -left-75 w-[470px] h-auto object-contain pointer-events-auto z-[-10] opacity-70 -rotate-15 cursor-pointer"
 />
             <h1 className="font-display leading-[0.9] text-cocoa pointer-events-none">
               <span className="block text-6xl sm:text-7xl lg:text-8xl">welcome</span>
