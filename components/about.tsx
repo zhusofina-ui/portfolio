@@ -47,6 +47,19 @@ export function About() {
     alt="Picture of me" 
     className="-mt-100 translate-x-90 w-65 h-auto object-cover rounded-[2rem] rotate-5 shadow-lg border-4 border-white/50"
   />
+  {/* Text & Arrow Annotation */}
+  <div className="absolute z-20 pointer-events-none -mt-[550px] -translate-x-[930px] flex flex-col items-center">
+    
+    <span className="text-xl text-cocoa font-display translate-x-28 -rotate-8 mb-2">
+      this is one of my digicams i use for photography!
+    </span>
+
+    <svg width="40" height="60" viewBox="0 0 50 70" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-pink drop-shadow-sm">
+      <path d="M15 5 Q 5 35, 30 60" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" />
+      <path d="M15 60 L 35 63 L 30 45" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+    
+  </div>
 <img 
     src="/abtmepic2.jpg" 
     alt="Second picture" 
