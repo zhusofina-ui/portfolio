@@ -63,10 +63,13 @@ export function About() {
 <img 
     src="/abtmepic2.jpg" 
     alt="Second picture" 
-    className="-mt-70 -translate-x-[830px] w-85 h-auto object-cover rounded-[2rem] -rotate-10 shadow-lg border-4 border-white/50"
+    className="-mt-70 -translate-x-[830px] w-85 h-auto object-cover rounded-[2rem] -rotate-10 shadow-lg border-4 border-cream"
   />
 </div>
-
+<img 
+    src="/testing12.jpg" 
+    alt="Third picture" 
+    className="w-85 translate-x-[1330px] -mt-70 h-auto object-cover rounded-[2rem] -rotate-5 shadow-lg border-3 border-pink"  />
     </section>
   )
 }

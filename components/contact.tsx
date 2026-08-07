@@ -14,7 +14,7 @@ export function Contact() {
   >
     let&apos;s build something{' '}
     <span className="font-hand text-5xl text-butter drop-shadow-sm sm:text-7xl">
-      fun
+      fun 
     </span>
   </h2>
 
@@ -38,6 +38,7 @@ export function Contact() {
     let&apos;s listen to music together!
   </span>
 </div>
+
 
    <div className="mt-8 mx-auto w-full max-w-md rounded-2xl border-2 border-[#4A3323] bg-[#4A3323] overflow-hidden shadow-[4px_4px_0px_#4A3323]">
   <iframe
