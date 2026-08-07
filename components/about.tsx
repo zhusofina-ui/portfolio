@@ -41,6 +41,13 @@ export function About() {
 
 
       </div>
+<div className="relative flex items-center justify-center">
+  <img 
+    src="/abtmepic.jpg" 
+    alt="Picture of me" 
+    className="-mt-100 translate-x-42 w-65 h-auto object-cover rounded-[2rem] rotate-5 shadow-lg border-4 border-white/50"
+  />
+</div>
     </section>
   )
 }
