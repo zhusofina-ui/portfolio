@@ -24,12 +24,12 @@ const playable: Project[] = [
         src: '/The Youth Horizon Bingo.png',
         captionTitle: 'The Youth Horizon, 2026',
         captionSubtitle: 'Canva'
-      }, 
+      },
       {
         src: '/The Youth Horizon Bingo2.png',
         captionTitle: 'The Youth Horizon, 2026',
         captionSubtitle: 'Canva'
-      }, 
+      },
       {
         src: '/1.png',
         captionTitle: 'DECA Inc, 2026',
@@ -150,7 +150,7 @@ const designs: Project[] = [
   },
   {
     title: 'miscellaneous',
-    tag: 'this cute website goes here too!',
+    tag: 'this website goes here too!',
     color: 'bg-butter',
     images: [
       {
@@ -262,13 +262,13 @@ export function Work() {
             <p className="mt-2 font-hand text-2xl text-cocoa/70">{activeProject.tag}</p>
 
             {/* Scrollable Work Area */}
-            <div className={`mt-8 grid gap-8 pb-8 ${activeProject.title === 'static posts' || activeProject.title === 'photography'| activeProject.title === 'miscellaneous' ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
+            <div className={`mt-8 grid gap-8 pb-8 ${activeProject.title === 'static posts' || activeProject.title === 'photography' | activeProject.title === 'miscellaneous' ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
               {activeProject.images && activeProject.images.length > 0 ? (
                 activeProject.images.map((img, index) => (
                   <div key={index} className="flex flex-col items-center gap-3">
-                    <img 
-                      src={img.src} 
-                      alt={img.captionTitle} 
+                    <img
+                      src={img.src}
+                      alt={img.captionTitle}
                       className="w-full max-w-2xl rounded-xl object-cover shadow-md"
                     />
                     <div className="text-center mt-2">
