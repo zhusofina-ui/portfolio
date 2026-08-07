@@ -1,8 +1,10 @@
 "use client"
 import { motion } from "framer-motion"
 import { Sparkle, StarDoodle } from '@/components/doodles'
+import { useState } from 'react'
 
 export function Hero() {
+  const [isSnapping, setIsSnapping] = useState(false)
   return (
     <section
       id="hero"
@@ -23,11 +25,14 @@ export function Hero() {
   drag
   dragMomentum={false}
   whileHover={{ scale: 1.05 }}
-  src="download (4).png"
-  alt="Custom background decoration"
-  className="absolute -top-35 -left-110 w-[2000px] -rotate-15 h-auto object-contain pointer-events-auto z-[-10] opacity-70"
+  
+  onPointerDownCapture={() => setIsSnapping(!isSnapping)}
+  
+  src={isSnapping ? "/download (6).png" : "/download (5).png"}
+  alt="Movie Clapboard"
+  className="absolute -top-60 -left-5 w-[480px] h-auto object-contain pointer-events-auto z-[-10] opacity-70 -rotate-15 cursor-pointer"
 />
-            <h1 className="font-display leading-[0.9] text-cocoa">
+            <h1 className="font-display leading-[0.9] text-cocoa pointer-events-none">
               <span className="block text-6xl sm:text-7xl lg:text-8xl">welcome</span>
               <span className="mt-2 block text-4xl sm:text-5xl lg:text-6xl">
                 to my
@@ -60,7 +65,7 @@ export function Hero() {
               whileHover={{ scale: 1.05 }}
               src="https://plain-wnam-prod-public.komododecks.com/202608/05/wSG5DQP9QWFDGWIg8I6K/image.png"
               alt="My portrait"
-              className="w-full max-w-130 translate-x-135 h-auto object-contain drop-shadow-xl rotate-5 cursor-grab active:cursor-grabbing relative z-[-99]"
+              className="w-full max-w-130 translate-x-135 h-auto object-contain drop-shadow-xl rotate-5 cursor-grab active:cursor-grabbing relative z-[-5]"
             />
           </div>
         </div>
