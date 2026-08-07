@@ -60,21 +60,22 @@ export function Hero() {
           {/* Right Side Image Column */}
           <div className="relative z-10 flex justify-center items-center order-1 md:order-2">
             <motion.img
-              drag
-              dragMomentum={false}
-              whileHover={{ scale: 1.05 }}
-              src="https://plain-wnam-prod-public.komododecks.com/202608/05/wSG5DQP9QWFDGWIg8I6K/image.png"
-              alt="My portrait"
-              className="w-full max-w-150 translate-x-170 h-auto object-contain drop-shadow-xl rotate-5 cursor-grab active:cursor-grabbing relative z-[-5]"
-            />
-            <motion.img
     drag
     dragMomentum={false}
     whileHover={{ scale: 1.05 }}
     src="/finapic.jpeg"  
     alt="My photo image"
-    className="absolute w-[700px] translate-x-250 h-auto object-contain drop-shadow-xl -rotate-6 cursor-grab active:cursor-grabbing z-10"
-  />
+    className="absolute w-[300px] translate-x-110 translate-y-20 h-auto object-contain drop-shadow-xl -rotate-8 cursor-grab active:cursor-grabbing z-100"
+    />
+    <motion.img
+              drag
+              dragMomentum={false}
+              whileHover={{ scale: 1.05 }}
+              src="https://plain-wnam-prod-public.komododecks.com/202608/05/wSG5DQP9QWFDGWIg8I6K/image.png"
+              alt="My portrait"
+              className="w-full max-w-150 translate-x-170 h-auto object-contain drop-shadow-xl rotate-5 cursor-grab active:cursor-grabbing"
+            />
+    
           </div>
         </div>
       </div>
