@@ -59,14 +59,7 @@ export function Hero() {
           </div>
           {/* Right Side Image Column */}
           <div className="relative z-10 flex justify-center items-center order-1 md:order-2">
-            <motion.img
-    drag
-    dragMomentum={false}
-    whileHover={{ scale: 1.05 }}
-    src="/finapic.jpeg"  
-    alt="My photo image"
-    className="absolute w-[300px] translate-x-110 translate-y-20 h-auto object-contain drop-shadow-xl -rotate-8 cursor-grab active:cursor-grabbing z-0"
-    />
+            
     <motion.img
               drag
               dragMomentum={false}
