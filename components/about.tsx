@@ -69,7 +69,12 @@ export function About() {
 <img 
     src="/testing12.jpg" 
     alt="Third picture" 
-    className="w-85 translate-x-[1330px] -mt-70 h-auto object-cover rounded-[2rem] -rotate-5 shadow-lg border-3 border-pink"  />
+    className="w-95 translate-x-[1620px] -mt-75 h-auto object-cover rounded-[2rem] rotate-8 shadow-lg border-3 border-pink"  />
+  
+    <img 
+    src="/IMG_5529 4.jpg" 
+    alt="Fourth picture" 
+    className="w-70 translate-x-[1350px] -mt-80 h-auto object-cover rounded-[2rem] -rotate-5 shadow-lg border-3 border-pink"  />
     </section>
   )
 }
