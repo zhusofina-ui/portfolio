@@ -2,6 +2,7 @@
 import { motion } from "framer-motion"
 import { Sparkle, StarDoodle } from '@/components/doodles'
 import { useState } from 'react'
+import Link from 'next/link';
 
 export function Hero() {
   const [isSnapping, setIsSnapping] = useState(false)
@@ -72,6 +73,72 @@ export function Hero() {
           </div>
         </div>
       </div>
+
+      {/* Interactive Manila Folder to Workstation */}
+<div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+<Link href="#work" className="block outline-none">
+<motion.div 
+      className="relative w-[420px] cursor-pointer"
+      initial="rest"
+      whileHover="hover"
+      whileTap="tap"
+      variants={{
+        rest: { scale: 1 },
+        hover: { scale: 1.02 },
+        tap: { scale: 0.95 }
+      }}
+    >
+      {/* Peeking Photo 1 (Left) */}
+      <motion.img 
+        src="/IMG_7366.JPG" 
+        alt="Work preview 1" 
+        className="absolute bottom-80 -right-80 w-50 h-auto object-cover rounded-md shadow-md z-20 origin-bottom-left"
+        variants={{
+          rest: { y: 0, x: "-50%", rotate: 0, opacity: 0 },
+          hover: { y: -120, x: "-120%", rotate: -25, opacity: 1 }
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      />
+
+      {/* Peeking Photo 2 (Center) */}
+      <motion.img 
+        src="/IMG_7250.JPG" 
+        alt="Work preview 2" 
+        className="absolute bottom-80 -right-80 w-50 h-auto object-cover rounded-md shadow-md z-20 origin-bottom"
+        variants={{
+          rest: { y: 0, x: "-50%", rotate: 0, opacity: 0 },
+          hover: { y: -150, x: "-50%", rotate: 0, opacity: 1 }
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.05 }}
+      />
+
+      {/* Peeking Photo 3 (Right) */}
+      <motion.img 
+        src="/IMG_7382.jpg" 
+        alt="Work preview 3" 
+        className="absolute bottom-80 -right-80 w-50 h-auto object-cover rounded-md shadow-md z-20 origin-bottom-right"
+        variants={{
+          rest: { y: 0, x: "-50%", rotate: 0, opacity: 0 },
+          hover: { y: -120, x: "20%", rotate: 25, opacity: 1 }
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.1 }}
+      />
+
+      {/* Main Folder Image (Front) */}
+      <img 
+        src="/folder.png" 
+        alt="My Work Folder" 
+        className="relative bottom-30 -right-80 -rotate-90 z-10 w-full h-auto drop-shadow-3xl"
+      />
+
+      {/* Cute Hand-drawn text on the folder */}
+      <span className="absolute bottom-80 -right-130 -translate-x-1/2 -translate-y-1/2 z-20 font-display text-cocoa text-3xl pointer-events-none -rotate-3 w-full text-center">
+        click to view my workstation!
+      </span>
+
+    </motion.div>
+  </Link>
+</div>
     </section>
   )
 }
