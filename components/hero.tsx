@@ -19,6 +19,14 @@ export function Hero() {
         <div className="relative grid items-center gap-6 md:grid-cols-2">
           {/* headline */}
           <div className="relative z-10 order-2 md:order-1">
+            <motion.img
+  drag
+  dragMomentum={false}
+  whileHover={{ scale: 1.05 }}
+  src="download (4).png"
+  alt="Custom background decoration"
+  className="absolute -top-35 -left-110 w-[2000px] -rotate-15 h-auto object-contain pointer-events-auto z-[-10] opacity-70"
+/>
             <h1 className="font-display leading-[0.9] text-cocoa">
               <span className="block text-6xl sm:text-7xl lg:text-8xl">welcome</span>
               <span className="mt-2 block text-4xl sm:text-5xl lg:text-6xl">
@@ -39,7 +47,7 @@ export function Hero() {
               <div className="relative w-44 -rotate-3 bg-butter/80 p-5 pr-16 shadow-md shadow-cocoa/20 border-2 border-[#4A3323]">
                 <span className="absolute -top-2 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-pink border-2 border-cocoa" />
                 <p className="text-base leading-tight text-cocoa" style={{ fontFamily: 'var(--font-geist), sans-serif' }}>
-                  guess we picked the same spot today 🎬
+                  guess we picked the same spot today 
                 </p>
               </div>
             </motion.div>
