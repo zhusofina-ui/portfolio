@@ -264,9 +264,16 @@ export function Work() {
       </div>
 
       {/* THE POP-UP (MODAL) */}
-      {activeProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
-          <div className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-3xl bg-cream p-8 shadow-2xl border-4 border-pink">
+      {/* THE POP-UP (MODAL) */}
+{activeProject && (
+  <div 
+    className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+    onClick={() => setActiveProject(null)} 
+  >
+    <div 
+      className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-3xl bg-cream p-8 shadow-2xl border-4 border-pink"
+      onClick={(e) => e.stopPropagation()} 
+    >
             <button
               onClick={() => setActiveProject(null)}
               className="absolute right-6 top-6 text-2xl text-cocoa transition-colors hover:text-pink"
