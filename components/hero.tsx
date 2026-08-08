@@ -31,7 +31,7 @@ export function Hero() {
   
   src={isSnapping ? "/download (5).png" : "/download (6).png"}
   alt="Movie Clapboard"
-  className="absolute -top-60 -left-77 w-[450px] h-auto object-contain pointer-events-auto z-[-10] opacity-70 -rotate-15 cursor-pointer"
+  className="absolute -top-40 -left-110 w-[410px] h-auto object-contain pointer-events-auto z-[-10] opacity-70 -rotate-15 cursor-pointer"
 />
             <h1 className="font-display leading-[0.9] text-cocoa pointer-events-none">
               <span className="block text-6xl sm:text-7xl lg:text-8xl">welcome</span>
