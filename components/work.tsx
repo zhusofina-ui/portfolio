@@ -68,6 +68,11 @@ const playable: Project[] = [
         captionSubtitle: 'Adobe Photoshop CC 2026 & Canva'
       },
       {
+        src: '/girls in cs (1).png',
+        captionTitle: 'Girls in CS, 2026',
+        captionSubtitle: 'Canva'
+      },
+      {
         src: '/Girls in CS Exec Application Portfolio - Sofina Zhu.png',
         captionTitle: 'The Youth Horizon, 2026',
         captionSubtitle: 'Canva'
