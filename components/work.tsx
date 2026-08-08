@@ -237,6 +237,7 @@ function Column({
 
 export function Work() {
   const [activeProject, setActiveProject] = useState<Project | null>(null)
+  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
   return (
     <section
@@ -295,10 +296,11 @@ export function Work() {
                 activeProject.images.map((img, index) => (
                   <div key={index} className="flex flex-col items-center gap-3">
                     <img
-                      src={img.src}
-                      alt={img.captionTitle}
-                      className="w-full max-w-2xl rounded-xl object-cover shadow-md"
-                    />
+            src={img.src}
+            alt={img.captionTitle}
+            onClick={() => setFullscreenImage(img.src)}
+            className="w-full max-w-2xl rounded-xl object-cover shadow-md cursor-zoom-in"
+          />
                     <div className="text-center mt-2">
                       <p className="font-sans italic text-xl text-cocoa">
                         {img.captionTitle}
@@ -315,6 +317,20 @@ export function Work() {
                 </div>
               )}
             </div>
+            {/* THE FULLSCREEN IMAGE OVERLAY */}
+      {fullscreenImage && (
+        <div 
+          // Notice z-[200] puts this ABOVE your activeProject modal which is z-[100]
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 p-4 backdrop-blur-md"
+          onClick={() => setFullscreenImage(null)}
+        >
+          <img
+            src={fullscreenImage}
+            alt="Fullscreen View"
+            className="max-h-[95vh] max-w-[95vw] object-contain cursor-zoom-out drop-shadow-2xl"
+          />
+        </div>
+      )}
           </div>
         </div>
       )}
