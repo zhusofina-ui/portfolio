@@ -161,7 +161,7 @@ export function Hero() {
 
 {/* Hand-drawn Arrow and Text pointing to Clapboard */}
 <div className="absolute top-[57%] left-[8%] z-30 flex items-center gap-2 -rotate-6 pointer-events-none">
-  <span className="font-display text-cocoa text-[26px]">
+  <span className="font-display text-cocoa text-[20px]">
     click me!
   </span>
   {/* Hand-drawn style custom SVG */}
