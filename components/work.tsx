@@ -31,23 +31,13 @@ const playable: Project[] = [
         captionSubtitle: 'Canva'
       },
       {
-        src: '/1.png',
-        captionTitle: 'DECA Inc, 2026',
-        captionSubtitle: 'Canva'
-      },
-      {
-        src: '/2.png',
-        captionTitle: 'DECA Inc, 2026',
+        src: 'PYC Media Task 26 - Sofina Zhu (1).png',
+        captionTitle: 'Platform for Youth Creativity, 2026',
         captionSubtitle: 'Canva'
       },
       {
         src: 'DECA 26-27 Gr9 Day Poster (1).png',
         captionTitle: 'DECA Chapter Grade 9 Day, 2026',
-        captionSubtitle: 'Canva'
-      },
-      {
-        src: 'TYH Kahoot Poster - Sofina Zhu.png',
-        captionTitle: 'The Youth Horizon, 2026',
         captionSubtitle: 'Canva'
       },
       {
@@ -66,11 +56,6 @@ const playable: Project[] = [
         src: '/Daily Bread Food Bank & The Youth Horizon, 2026.png',
         captionTitle: 'Daily Bread Food Bank & The Youth Horizon, 2026',
         captionSubtitle: 'Adobe Photoshop CC 2026 & Canva'
-      },
-      {
-        src: '/girls in cs (1).png',
-        captionTitle: 'Girls in CS, 2026',
-        captionSubtitle: 'Canva'
       },
       {
         src: '/Girls in CS Exec Application Portfolio - Sofina Zhu.png',
