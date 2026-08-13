@@ -144,7 +144,7 @@ const designs: Project[] = [
     color: 'bg-butter',
     images: [
       {
-        src: 'sofinazhu (1)_page-0001.jpg',
+        src: 'sofinazhu.resume_page-0001.jpg',
         captionTitle: 'check out my resume!',
         captionSubtitle: ''
       },
