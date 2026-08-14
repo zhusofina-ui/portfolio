@@ -41,7 +41,7 @@ const playable: Project[] = [
         captionSubtitle: 'Canva'
       },
       {
-        src: 'The Peer Power Project Announcement.png',
+        src: 'The Peer Power Project Announcement (1).png',
         captionTitle: 'The Peer Power Project & The Youth Horizon, 2026',
         captionSubtitle: 'Canva'
       }
