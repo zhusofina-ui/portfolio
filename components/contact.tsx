@@ -35,7 +35,7 @@ export function Contact() {
     className="text-lg text-cocoa/60" 
     style={{ fontFamily: 'var(--font-geist), sans-serif' }}
   >
-    did you want to listen to music? 🎵
+    let's listen to music! 🎵
   </span>
 </div>
 

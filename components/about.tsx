@@ -4,7 +4,8 @@ const paragraphs = [
   "hey! I'm sofina, a gr10 student at markham district high school!",
   "i love being creative and designing things that feel playful and nostalgic. jack of all trades (and a master of... some).",
   "for softwares, i mostly use Canva, but im working on expanding towards Adobe and video editing softwares (davinci, capcut, etc)",
-  "i'm here to make cool things with cool people (thats you!) thanks for clicking around and have fun exploring my site! ",
+  "i'm here to make cool things with cool people (thats you!)",
+  "thanks for clicking around and have fun exploring my site! "
 ]
 export function About() {
   return (

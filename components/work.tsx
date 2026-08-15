@@ -31,7 +31,7 @@ const playable: Project[] = [
         captionSubtitle: 'Canva'
       },
       {
-        src: 'PYC Media Task 26 - Sofina Zhu (1).png',
+        src: 'PYC Media Task 26 - Sofina Zhu (2).png',
         captionTitle: 'Platform for Youth Creativity, 2026',
         captionSubtitle: 'Canva'
       },
@@ -123,11 +123,6 @@ const designs: Project[] = [
         src: '/IMG_0571.jpg',
         captionTitle: 'shiny rock, 2024',
         captionSubtitle: 'iphone 13'
-      },
-      {
-        src: '/IMG_7382.jpg',
-        captionTitle: 'glass balloons, 2026',
-        captionSubtitle: 'Canon Digital IXUS 900 Ti'
       }
     ]
   },
