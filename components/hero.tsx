@@ -132,7 +132,7 @@ export function Hero() {
       />
 
       {/* text on the folder */}
-      <span className="absolute bottom-80 -right-130 -translate-x-1/2 -translate-y-1/2 z-20 font-display text-cocoa text-3xl pointer-events-none -rotate-3 w-full text-center">
+      <span className="absolute bottom-80 -right-133 -translate-x-1/2 -translate-y-1/2 z-20 font-display text-cocoa text-3xl pointer-events-none -rotate-3 w-full text-center">
         ★ click to view my pieces! ★
       </span>
       </motion.div>
