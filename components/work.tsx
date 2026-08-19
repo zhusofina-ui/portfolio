@@ -44,6 +44,21 @@ const playable: Project[] = [
         src: 'The Peer Power Project Announcement (1).png',
         captionTitle: 'The Peer Power Project & The Youth Horizon, 2026',
         captionSubtitle: 'Canva'
+      },
+      {
+        src: 'csacollab.png',
+        captionTitle: 'The Canadian Scholars Association & The Youth Horizon, 2026',
+        captionSubtitle: 'Canva'
+      },
+      {
+        src: 'Supplemental MTAC Application Portfolio - Sofina Zhu.png',
+        captionTitle: 'DECA Inc., 2026',
+        captionSubtitle: 'Canva'
+      },
+      {
+        src: 'recruitment post.png',
+        captionTitle: 'DECA Inc., 2026',
+        captionSubtitle: 'Canva'
       }
     ]
   },
@@ -66,7 +81,7 @@ const playable: Project[] = [
   },
   {
     title: 'merchandise',
-    tag: 'i want cool merch too!',
+    tag: 'lets make cool merch!',
     color: 'bg-blush',
     images: [
       {
@@ -81,7 +96,7 @@ const playable: Project[] = [
 const designs: Project[] = [
   {
     title: 'photography',
-    tag: 'capturing small moments in life',
+    tag: '📸 📸 📸',
     color: 'bg-butter',
     images: [
       {
@@ -118,7 +133,13 @@ const designs: Project[] = [
         src: '/IMG_0571.jpg',
         captionTitle: 'shiny rock, 2024',
         captionSubtitle: 'iphone 13'
+      },
+      {
+        src: '/IMG_7382.jpg',
+        captionTitle: 'glass balloons, 2026',
+        captionSubtitle: 'Canon Digital IXUS 900 Ti'
       }
+      
     ]
   },
   {
