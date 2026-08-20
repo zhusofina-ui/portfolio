@@ -51,11 +51,6 @@ const playable: Project[] = [
         captionSubtitle: 'Canva'
       },
       {
-        src: 'Supplemental MTAC Application Portfolio - Sofina Zhu.png',
-        captionTitle: 'DECA Inc., 2026',
-        captionSubtitle: 'Canva'
-      },
-      {
         src: 'recruitment post.png',
         captionTitle: 'DECA Inc., 2026',
         captionSubtitle: 'Canva'
@@ -85,14 +80,9 @@ const playable: Project[] = [
     color: 'bg-blush',
     images: [
       {
-        src: '/Screenshot_20-8-2026_16215_www.canva.com-imageonline.co-merged.png',
+        src: '/Screenshot_20-8-2026_16215_www.canva.com-imageonline.co-merged (1)-imageonline.co-merged (1).png',
         captionTitle: 'mello, 2026 (Canva)',
-        captionSubtitle: 'Mello is a concept cafe & bakery brand built around a whimsical, sweet visual identity that includes hand-illustrated cakes, drinks, and details to create a warm, collected-by-hand feel. 
-      },
-      {
-        src: '/Screenshot_20-8-2026_16215_www.canva.com-imageonline.co-merged (1).png',
-        captionTitle: 'mello, 2026 (Canva)',
-        captionSubtitle: '
+        captionSubtitle: 'mello is a concept café & bakery brand built around a whimsical and sweet visual identity that includes illustrated desserts, drinks, and details to create a warm, "collected-by-hand" feel.'
       }
     ]
   }
@@ -297,7 +287,7 @@ export function Work() {
             <p className="mt-2 font-hand text-2xl text-cocoa/70">{activeProject.tag}</p>
 
             {/* Scrollable Work Area */}
-            <div className={`mt-8 grid gap-8 pb-8 ${activeProject.title === 'static posts' || activeProject.title === 'photography' || activeProject.title === 'branding & merchandise' || activeProject.title === 'miscellaneous' ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
+            <div className={`mt-8 grid gap-8 pb-8 ${activeProject.title === 'static posts' || activeProject.title === 'photography' || activeProject.title === 'miscellaneous' ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
               {activeProject.images && activeProject.images.length > 0 ? (
                 activeProject.images.map((img, index) => (
                   <div key={index} className="flex flex-col items-center gap-3">
