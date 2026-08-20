@@ -314,6 +314,7 @@ export function Work() {
               )}
             </div>
             {/* THE FULLSCREEN IMAGE OVERLAY */}
+      const [isZoomed, setIsZoomed] = useState(false);
       {fullscreenImage && (
         <div 
           // Notice z-[200] puts this ABOVE your activeProject modal which is z-[100]

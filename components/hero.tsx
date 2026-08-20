@@ -159,30 +159,6 @@ export function Hero() {
   className="absolute top-150 left-15 w-110 h-auto object-cover rounded-[2rem] rotate-90 z-10" 
 />
 
-{/* Hand-drawn Arrow and Text pointing to Clapboard */}
-<div className="absolute top-[57%] left-[8%] z-30 flex items-center gap-2 -rotate-6 pointer-events-none">
-  <span className="font-display text-cocoa text-[20px]">
-    click me!
-  </span>
-  {/* Hand-drawn style custom SVG */}
-  <svg 
-    width="50" 
-    height="50" 
-    viewBox="0 0 100 100" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="5" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
-    className="text-cocoa"
-  >
-    {/* The curved stem */}
-    <path d="M 15,85 Q 40,40 85,15" />
-    {/* The arrowhead */}
-    <path d="M 50,15 L 85,15 L 80,50" />
-  </svg>
-</div>
-
    </section>
   )
 }
