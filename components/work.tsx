@@ -75,8 +75,8 @@ const playable: Project[] = [
     ]
   },
   {
-    title: 'branding & merchandise',
-    tag: 'lets make cool merch!',
+    title: 'branding',
+    tag: '👩🏻‍💻 👩🏻‍💻 👩🏻‍💻',
     color: 'bg-blush',
     images: [
       {
@@ -150,7 +150,7 @@ const designs: Project[] = [
     color: 'bg-butter',
     images: [
       {
-        src: 'sofinazhu.resume_page-0001.jpg',
+        src: 'sofinazhu.resume (2)-1 3.png',
         captionTitle: 'check out my resume!',
         captionSubtitle: ''
       },

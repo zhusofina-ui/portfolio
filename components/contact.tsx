@@ -13,9 +13,9 @@ export function Contact() {
     className="text-4xl font-normal leading-tight text-cocoa sm:text-6xl"
   >
     let&apos;s build something{' '}
-    <span className="font-hand text-5xl text-butter drop-shadow-sm sm:text-7xl">
-      fun 
-    </span>
+    <span className="text-5xl text-cream drop-shadow-sm sm:text-7xl">
+  fun!
+</span>
   </h2>
 
   <a
