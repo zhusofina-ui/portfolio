@@ -106,7 +106,7 @@ const designs: Project[] = [
       },
       {
         src: '/IMG_7366.JPG',
-        captionTitle: 'what a pretty lamp, 2026',
+        captionTitle: 'yena ban, 2026',
         captionSubtitle: 'Canon Digital IXUS 900 Ti'
       },
       {
