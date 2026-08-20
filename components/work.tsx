@@ -128,11 +128,6 @@ const designs: Project[] = [
         src: '/IMG_0571.jpg',
         captionTitle: 'shiny rock, 2024',
         captionSubtitle: 'iphone 13'
-      },
-      {
-        src: '/IMG_7382.jpg',
-        captionTitle: 'glass balloons, 2026',
-        captionSubtitle: 'Canon Digital IXUS 900 Ti'
       }
       
     ]
