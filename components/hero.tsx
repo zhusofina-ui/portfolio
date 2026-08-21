@@ -114,7 +114,7 @@ export function Hero() {
 
       {/* Peeking Photo 3 (Right) */}
       <motion.img 
-        src="/IMG_7382.jpg" 
+        src="/IMG_0571.jpg" 
         alt="Work preview 3" 
         className="absolute bottom-80 -right-80 w-50 h-auto object-cover rounded-md shadow-md z-20 origin-bottom-right"
         variants={{
@@ -132,8 +132,8 @@ export function Hero() {
       />
 
       {/* text on the folder */}
-      <span className="absolute bottom-80 -right-130 -translate-x-1/2 -translate-y-1/2 z-20 font-display text-cocoa text-3xl pointer-events-none -rotate-3 w-full text-center">
-        click to view my pieces!
+      <span className="absolute bottom-80 -right-133 -translate-x-1/2 -translate-y-1/2 z-20 font-display text-cocoa text-3xl pointer-events-none -rotate-3 w-full text-center">
+        ★ click to view my pieces! ★
       </span>
       </motion.div>
 
@@ -158,30 +158,6 @@ export function Hero() {
   alt="New loose photo" 
   className="absolute top-150 left-15 w-110 h-auto object-cover rounded-[2rem] rotate-90 z-10" 
 />
-
-{/* Hand-drawn Arrow and Text pointing to Clapboard */}
-<div className="absolute top-[57%] left-[8%] z-30 flex items-center gap-2 -rotate-6 pointer-events-none">
-  <span className="font-display text-cocoa text-[20px]">
-    click me!
-  </span>
-  {/* Hand-drawn style custom SVG */}
-  <svg 
-    width="50" 
-    height="50" 
-    viewBox="0 0 100 100" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="5" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
-    className="text-cocoa"
-  >
-    {/* The curved stem */}
-    <path d="M 15,85 Q 40,40 85,15" />
-    {/* The arrowhead */}
-    <path d="M 50,15 L 85,15 L 80,50" />
-  </svg>
-</div>
 
    </section>
   )

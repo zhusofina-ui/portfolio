@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Arrow } from '@/components/doodles'
 
 type ProjectImage = {
@@ -31,7 +31,7 @@ const playable: Project[] = [
         captionSubtitle: 'Canva'
       },
       {
-        src: 'PYC Media Task 26 - Sofina Zhu (1).png',
+        src: 'PYC Media Task 26 - Sofina Zhu (2).png',
         captionTitle: 'Platform for Youth Creativity, 2026',
         captionSubtitle: 'Canva'
       },
@@ -41,8 +41,18 @@ const playable: Project[] = [
         captionSubtitle: 'Canva'
       },
       {
+        src: 'The Peer Power Project Announcement (1).png',
+        captionTitle: 'The Peer Power Project & The Youth Horizon, 2026',
+        captionSubtitle: 'Canva'
+      },
+      {
         src: 'csacollab.png',
-        captionTitle: 'Canadian Scholars Association & The Youth Horizon, 2026',
+        captionTitle: 'The Canadian Scholars Association & The Youth Horizon, 2026',
+        captionSubtitle: 'Canva'
+      },
+      {
+        src: 'recruitment post.png',
+        captionTitle: 'DECA Inc., 2026',
         captionSubtitle: 'Canva'
       }
     ]
@@ -65,14 +75,14 @@ const playable: Project[] = [
     ]
   },
   {
-    title: 'merchandise',
-    tag: 'i want cool merch too!',
+    title: 'branding',
+    tag: '👩🏻‍💻 👩🏻‍💻 👩🏻‍💻',
     color: 'bg-blush',
     images: [
       {
-        src: '/your-image.png',
-        captionTitle: 'new designs coming soon!',
-        captionSubtitle: 'come back later~'
+        src: '/Screenshot_20-8-2026_16215_www.canva.com-imageonline.co-merged (1)-imageonline.co-merged (1).png',
+        captionTitle: 'mello, 2026 (Canva)',
+        captionSubtitle: 'mello is a concept café & bakery brand built around a whimsical and sweet visual identity that includes illustrated desserts, drinks, and details to create a warm, "collected-by-hand" feel.'
       }
     ]
   }
@@ -81,22 +91,22 @@ const playable: Project[] = [
 const designs: Project[] = [
   {
     title: 'photography',
-    tag: 'capturing small moments in life',
+    tag: '📸 📸 📸',
     color: 'bg-butter',
     images: [
       {
         src: '/IMG_7250.JPG',
-        captionTitle: 'zgdx, 2026',
+        captionTitle: 'ocean, 2026',
         captionSubtitle: 'Canon Digital IXUS 900 Ti'
       },
       {
         src: '/IMG_7366.JPG',
-        captionTitle: 'what a pretty lamp, 2026',
+        captionTitle: 'shiny lamp, 2026',
         captionSubtitle: 'Canon Digital IXUS 900 Ti'
       },
       {
         src: '/IMG_7359.JPG',
-        captionTitle: 'it is decidedly so, 2026',
+        captionTitle: 'magic 8 ball, 2026',
         captionSubtitle: 'Canon Digital IXUS 900 Ti'
       },
       {
@@ -106,7 +116,7 @@ const designs: Project[] = [
       },
       {
         src: '/IMG_7252.JPG',
-        captionTitle: 'all is smooth sailing, 2026',
+        captionTitle: 'smooth sailing, 2026',
         captionSubtitle: 'Canon Digital IXUS 900 Ti'
       },
       {
@@ -118,12 +128,8 @@ const designs: Project[] = [
         src: '/IMG_0571.jpg',
         captionTitle: 'shiny rock, 2024',
         captionSubtitle: 'iphone 13'
-      },
-      {
-        src: '/IMG_7382.jpg',
-        captionTitle: 'glass balloons, 2026',
-        captionSubtitle: 'Canon Digital IXUS 900 Ti'
       }
+      
     ]
   },
   {
@@ -144,7 +150,7 @@ const designs: Project[] = [
     color: 'bg-butter',
     images: [
       {
-        src: 'sofinazhu.resume_page-0001.jpg',
+        src: 'sofinazhu.resume (3)-1.png',
         captionTitle: 'check out my resume!',
         captionSubtitle: ''
       },
@@ -221,8 +227,43 @@ function Column({
 }
 
 export function Work() {
-  const [activeProject, setActiveProject] = useState<Project | null>(null)
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleZoomClick = (e: React.MouseEvent<HTMLImageElement>) => {
+    e.stopPropagation();
+  
+    if (!isZoomed) {
+      // 1. Find exactly where you clicked relative to the image
+      const img = e.currentTarget;
+      const rect = img.getBoundingClientRect();
+      const xPercent = (e.clientX - rect.left) / rect.width;
+      const yPercent = (e.clientY - rect.top) / rect.height;
+  
+      // 2. Trigger the zoom state
+      setIsZoomed(true);
+  
+      // 3. Wait 1 tick for the image to resize, then snap instantly to the location
+      setTimeout(() => {
+        if (containerRef.current) {
+          const container = containerRef.current;
+          const scrollX = (container.scrollWidth * xPercent) - (window.innerWidth / 2);
+          const scrollY = (container.scrollHeight * yPercent) - (window.innerHeight / 2);
+          
+          container.scrollTo({
+            left: scrollX,
+            top: scrollY,
+            behavior: 'auto' // instant jump instead of smooth sliding
+          });
+        }
+      }, 10);
+    } else {
+      // Zoom out if already zoomed in
+      setIsZoomed(false);
+    }
+  };
 
   return (
     <section
@@ -255,16 +296,15 @@ export function Work() {
       </div>
 
       {/* THE POP-UP (MODAL) */}
-      {/* THE POP-UP (MODAL) */}
-{activeProject && (
-  <div 
-    className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
-    onClick={() => setActiveProject(null)} 
-  >
-    <div 
-      className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-3xl bg-cream p-8 shadow-2xl border-4 border-pink"
-      onClick={(e) => e.stopPropagation()} 
-    >
+      {activeProject && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+          onClick={() => setActiveProject(null)} 
+        >
+          <div 
+            className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-3xl bg-cream p-8 shadow-2xl border-4 border-pink"
+            onClick={(e) => e.stopPropagation()} 
+          >
             <button
               onClick={() => setActiveProject(null)}
               className="absolute right-6 top-6 text-2xl text-cocoa transition-colors hover:text-pink"
@@ -276,16 +316,19 @@ export function Work() {
             <p className="mt-2 font-hand text-2xl text-cocoa/70">{activeProject.tag}</p>
 
             {/* Scrollable Work Area */}
-            <div className={`mt-8 grid gap-8 pb-8 ${activeProject.title === 'static posts' || activeProject.title === 'photography' | activeProject.title === 'miscellaneous' ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
+            <div className={`mt-8 grid gap-8 pb-8 ${activeProject.title === 'static posts' || activeProject.title === 'photography' || activeProject.title === 'miscellaneous' ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
               {activeProject.images && activeProject.images.length > 0 ? (
                 activeProject.images.map((img, index) => (
                   <div key={index} className="flex flex-col items-center gap-3">
                     <img
-            src={img.src}
-            alt={img.captionTitle}
-            onClick={() => setFullscreenImage(img.src)}
-            className="w-full max-w-2xl rounded-xl object-cover shadow-md cursor-zoom-in"
-          />
+                      src={img.src}
+                      alt={img.captionTitle}
+                      onClick={() => {
+                        setFullscreenImage(img.src);
+                        setIsZoomed(false); // Ensure it starts un-zoomed when first opening
+                      }}
+                      className="w-full max-w-2xl rounded-xl object-cover shadow-md cursor-zoom-in"
+                    />
                     <div className="text-center mt-2">
                       <p className="font-sans italic text-xl text-cocoa">
                         {img.captionTitle}
@@ -302,20 +345,32 @@ export function Work() {
                 </div>
               )}
             </div>
+            
             {/* THE FULLSCREEN IMAGE OVERLAY */}
-      {fullscreenImage && (
-        <div 
-          // Notice z-[200] puts this ABOVE your activeProject modal which is z-[100]
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 p-4 backdrop-blur-md"
-          onClick={() => setFullscreenImage(null)}
-        >
-          <img
-            src={fullscreenImage}
-            alt="Fullscreen View"
-            className="max-h-[95vh] max-w-[95vw] object-contain cursor-zoom-out drop-shadow-2xl"
-          />
-        </div>
-      )}
+            {fullscreenImage && (
+              <div
+                ref={containerRef}
+                className="fixed inset-0 z-[200] bg-black/90 p-4 backdrop-blur-md overflow-auto"
+                onClick={() => {
+                  setFullscreenImage(null);
+                  setIsZoomed(false);
+                }}
+              >
+                {/* Wrap the image in a flex container that handles the centering safely */}
+                <div className={`min-h-full flex ${isZoomed ? 'items-start justify-start' : 'items-center justify-center'}`}>
+                  <img
+                    src={fullscreenImage}
+                    alt="Fullscreen View"
+                    onClick={handleZoomClick}
+                    className={`drop-shadow-2xl ${
+                      isZoomed
+                        ? "w-auto h-auto min-w-[200vw] sm:min-w-[110vw] cursor-zoom-out"
+                        : "max-h-[95vh] max-w-[95vw] object-contain cursor-zoom-in"
+                    }`}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
