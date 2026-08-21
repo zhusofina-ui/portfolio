@@ -96,17 +96,17 @@ const designs: Project[] = [
     images: [
       {
         src: '/IMG_7250.JPG',
-        captionTitle: 'zgdx, 2026',
+        captionTitle: 'ocean, 2026',
         captionSubtitle: 'Canon Digital IXUS 900 Ti'
       },
       {
         src: '/IMG_7366.JPG',
-        captionTitle: 'yena ban, 2026',
+        captionTitle: 'shiny lamp, 2026',
         captionSubtitle: 'Canon Digital IXUS 900 Ti'
       },
       {
         src: '/IMG_7359.JPG',
-        captionTitle: 'it is decidedly so, 2026',
+        captionTitle: 'magic 8 ball, 2026',
         captionSubtitle: 'Canon Digital IXUS 900 Ti'
       },
       {
@@ -116,7 +116,7 @@ const designs: Project[] = [
       },
       {
         src: '/IMG_7252.JPG',
-        captionTitle: 'all is smooth sailing, 2026',
+        captionTitle: 'smooth sailing, 2026',
         captionSubtitle: 'Canon Digital IXUS 900 Ti'
       },
       {
