@@ -51,6 +51,11 @@ const playable: Project[] = [
         captionSubtitle: 'Canva'
       },
       {
+        src: 'drink poster.png',
+        captionTitle: 'Independent Design, 2026',
+        captionSubtitle: 'Canva'
+      },
+      {
         src: 'recruitment post.png',
         captionTitle: 'DECA Inc., 2026',
         captionSubtitle: 'Canva'
