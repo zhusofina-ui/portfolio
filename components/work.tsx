@@ -73,7 +73,7 @@ const playable: Project[] = [
         captionSubtitle: 'Adobe Photoshop CC 2026 & Canva'
       },
       {
-        src: '/The Peer Power Project & The Youth Horizon, 2026 (Canva).png',
+        src: '/2-imageonline.co-merged (4).png',
         captionTitle: 'The Peer Power Project & The Youth Horizon, 2026',
         captionSubtitle: 'Canva'
       }
