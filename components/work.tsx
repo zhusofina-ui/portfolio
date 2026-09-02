@@ -51,6 +51,11 @@ const playable: Project[] = [
         captionSubtitle: 'Canva'
       },
       {
+        src: 'drink poster.png',
+        captionTitle: 'Independent Design, 2026',
+        captionSubtitle: 'Canva'
+      },
+      {
         src: 'recruitment post.png',
         captionTitle: 'DECA Inc., 2026',
         captionSubtitle: 'Canva'
@@ -68,8 +73,8 @@ const playable: Project[] = [
         captionSubtitle: 'Adobe Photoshop CC 2026 & Canva'
       },
       {
-        src: '/Girls in CS Exec Application Portfolio - Sofina Zhu.png',
-        captionTitle: 'The Youth Horizon, 2026',
+        src: '/The Peer Power Project & The Youth Horizon, 2026 (Canva).png',
+        captionTitle: 'The Peer Power Project & The Youth Horizon, 2026',
         captionSubtitle: 'Canva'
       }
     ]
