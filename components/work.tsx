@@ -28,14 +28,9 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
     images: [
       {
         src: "/Daily Bread Food Bank & The Youth Horizon, 2026.png",
-        title: "Daily Bread Food Bank & The Youth Horizon, 2026",
-        caption: "Adobe Photoshop CC 2026 & Canva",
+        title: "Daily Bread Food Bank",
+        caption: "Your caption here",
       },
-      {
-        src: "/The Peer Power Project & The Youth Horizon, 2026 (Canva) (1).png",
-        title: "The Peer Power Project & The Youth Horizon, 2026",
-        caption: "Canva",
-      }
     ],
   },
   branding: {
@@ -45,21 +40,20 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
       {
         src: "/2-imageonline.co-merged-imageonline.co-merged (1).png",
         title: "mello, 2026",
-        caption: "mello is a concept café & bakery brand built around a whimsical and sweet visual identity that includes illustrated desserts, drinks, and details to create a warm, 'collected by hand' feel. (Canva)",
+        caption: "mello is a concept café & bakery brand built around a whimsical and sweet visual identity that includes illustrated desserts, drinks, and details to create a warm, 'collected by hand' feel.",
       },
       {
         src: "/fusexblume (7)-imageonline.co-merged-imageonline.co-merged.png",
         title: "Fuse Society & Blume, 2026",
-        caption: "A collaborative pitch deck for an established partnership between Fuse Society (www.fusesociety.ca), a youth-driven platform, and established wellness brand Blume (itsblume.com), utilizing soft gradients and brand typography . (Canva)",
-
-      }
+        caption: "A collaborative pitch deck for a partnership between Fuse Society (fusesociety.ca), a youth-driven platform, and established wellness brand Blume (itsblume.com), utilizing soft gradients and branded typography. (Canva)",
+      },
     ],
   },
   photography: {
     title: "Photography",
     layout: "grid",
     images: [
-      { src: "/IMG_7250.JPG", title: "Photo title", caption: "Short caption here" },
+      { src: "/content/photo-1.png", title: "Photo title", caption: "Short caption here" },
       { src: "", title: "", caption: "" },
     ],
   },
@@ -162,10 +156,12 @@ function ThumbnailCard({
   item,
   aspect = "square",
   titleFont = false,
+  onZoom,
 }: {
   item: ImageItem;
   aspect?: "square" | "a4";
   titleFont?: boolean;
+  onZoom?: (src: string) => void;
 }) {
   const aspectClass = aspect === "a4" ? "aspect-[210/297]" : "aspect-square";
 
@@ -175,7 +171,8 @@ function ThumbnailCard({
         <img
           src={item.src}
           alt={item.title ?? ""}
-          className={`w-full ${aspectClass} object-contain rounded-lg bg-pink-50/40`}
+          onClick={() => onZoom && onZoom(item.src)}
+          className={`w-full ${aspectClass} object-contain rounded-lg bg-pink-50/40 ${onZoom ? 'cursor-zoom-in' : ''}`}
         />
       ) : (
         <div className={`w-full ${aspectClass} rounded-lg border-2 border-dashed border-pink-200 bg-pink-50/40`} />
@@ -213,6 +210,7 @@ function FolderRow({ label, tabColor, onClick }: { label: string; tabColor: stri
 export function Work() {
   const [openFolder, setOpenFolder] = useState<FolderKey | null>(null);
   const [activeSubfolder, setActiveSubfolder] = useState<SubfolderKey | null>(null);
+  const [zoomedImage, setZoomedImage] = useState<string | null>(null);
 
   const closeAll = () => {
     setOpenFolder(null);
@@ -280,6 +278,7 @@ export function Work() {
                         key={img.src || `${activeSubfolderData.key}-blank-${i}`}
                         item={img}
                         aspect="a4"
+                        onZoom={(src) => setZoomedImage(src)}
                       />
                     ))}
                   </div>
@@ -306,7 +305,11 @@ export function Work() {
                   {folderData.layout === "grid" ? (
                     <div className="grid grid-cols-2 gap-6">
                       {folderData.images.map((img, i) => (
-                        <ThumbnailCard key={img.src || `blank-${i}`} item={img} />
+                        <ThumbnailCard 
+                          key={img.src || `blank-${i}`} 
+                          item={img} 
+                          onZoom={(src) => setZoomedImage(src)}
+                        />
                       ))}
                     </div>
                   ) : (
@@ -317,13 +320,13 @@ export function Work() {
                             <img 
                               src={img.src} 
                               alt={img.title || ""} 
-                              className="w-full h-auto object-contain rounded-lg shadow-sm bg-pink-50/40" 
+                              onClick={() => setZoomedImage(img.src)}
+                              className="w-full h-auto object-contain rounded-lg shadow-sm bg-pink-50/40 cursor-zoom-in" 
                             />
                           ) : (
                             <div className="w-full h-64 rounded-lg border-2 border-dashed border-pink-200 bg-pink-50/40" />
                           )}
                           
-                          {/* Title and Caption applied to Single/Rectangle layout */}
                           {img.title && (
                             <h3 className="mt-3 text-lg font-bold bg-gradient-to-r from-[#8fad54] to-[#c1d4b9] bg-clip-text text-transparent">
                               {img.title}
@@ -340,6 +343,20 @@ export function Work() {
               )
             )}
           </div>
+        </div>
+      )}
+
+      {/* Full Screen Image Zoom Overlay */}
+      {zoomedImage && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 cursor-zoom-out"
+          onClick={() => setZoomedImage(null)}
+        >
+          <img 
+            src={zoomedImage} 
+            alt="Zoomed full size" 
+            className="max-w-full max-h-full object-contain"
+          />
         </div>
       )}
     </div>
