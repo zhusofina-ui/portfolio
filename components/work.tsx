@@ -13,20 +13,12 @@ type ImageItem = { src: string; title?: string; caption?: string };
 
 type FolderData = {
   title: string;
-  layout: "grid" | "single"; // "grid" = smaller thumbnails w/ title+caption
+  layout: "grid" | "single";
   images: ImageItem[];
 };
 
-const folderContent: Record<FolderKey, FolderData> = {
-  staticPosts: {
-    title: "Static Posts",
-    layout: "grid",
-    images: [
-      { src: "/designs/static-1.png", title: "Post title", caption: "Short caption here" },
-      { src: "/designs/static-2.png", title: "Post title", caption: "Short caption here" },
-      { src: "", title: "", caption: "" }, // blank reserved slot
-    ],
-  },
+// Data for every folder EXCEPT staticPosts — that one has its own sub-folder flow below.
+const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
   carousels: {
     title: "Carousels",
     layout: "single",
@@ -60,7 +52,34 @@ const folderContent: Record<FolderKey, FolderData> = {
   },
 };
 
-const VERTICAL_SHIFT = -11.5; // % — negative moves hotspots up. Tweak this one number to fine-tune.
+const hotspotLabels: Record<FolderKey, string> = {
+  staticPosts: "Static Posts",
+  carousels: "Carousels",
+  branding: "Branding & Collaborations",
+  photography: "Photography",
+  videography: "Videography",
+  misc: "Miscellaneous",
+};
+
+// The 5 sub-folders that live inside Static Posts
+type SubfolderKey = "sub1" | "sub2" | "sub3" | "sub4" | "sub5";
+
+type Subfolder = {
+  key: SubfolderKey;
+  label: string;      // text shown on the folder row itself — rename these
+  popupTitle: string; // custom title shown once that sub-folder is opened
+  image: string;      // the uploaded image for this sub-folder
+};
+
+const staticPostsSubfolders: Subfolder[] = [
+  { key: "sub1", label: "Subfolder 1", popupTitle: "Custom Title 1", image: "/designs/static/sub-1.png" },
+  { key: "sub2", label: "Subfolder 2", popupTitle: "Custom Title 2", image: "/designs/static/sub-2.png" },
+  { key: "sub3", label: "Subfolder 3", popupTitle: "Custom Title 3", image: "/designs/static/sub-3.png" },
+  { key: "sub4", label: "Subfolder 4", popupTitle: "Custom Title 4", image: "/designs/static/sub-4.png" },
+  { key: "sub5", label: "Subfolder 5", popupTitle: "Custom Title 5", image: "/designs/static/sub-5.png" },
+];
+
+const VERTICAL_SHIFT = -11.5; // % — negative moves hotspots up.
 
 const hotspots: { key: FolderKey; top: number; left: string; width: string; height: string }[] = [
   { key: "staticPosts", top: 62.0 + VERTICAL_SHIFT, left: "4.7%",  width: "23.5%", height: "10.5%" },
@@ -93,9 +112,35 @@ function ThumbnailCard({ item }: { item: ImageItem }) {
   );
 }
 
+// Styled to match your folder-row reference image: a small colored tab peeking
+// above a white rounded rectangle.
+function FolderRow({ label, tabColor, onClick }: { label: string; tabColor: string; onClick: () => void }) {
+  return (
+    <button onClick={onClick} className="relative block w-full text-left">
+      <span className={`absolute -top-2 left-4 h-3 w-20 rounded-t-lg ${tabColor}`} />
+      <span className="relative block w-full rounded-2xl bg-white px-6 py-6 shadow-sm transition-shadow hover:shadow-md">
+        <span className="text-xl font-bold text-pink-400">{label}</span>
+      </span>
+    </button>
+  );
+}
+
 export function Work() {
   const [openFolder, setOpenFolder] = useState<FolderKey | null>(null);
-  const folderData = openFolder ? folderContent[openFolder] : null;
+  const [activeSubfolder, setActiveSubfolder] = useState<SubfolderKey | null>(null);
+
+  const closeAll = () => {
+    setOpenFolder(null);
+    setActiveSubfolder(null);
+  };
+
+  const openHotspot = (key: FolderKey) => {
+    setActiveSubfolder(null); // always land on the folder list, never a leftover subfolder view
+    setOpenFolder(key);
+  };
+
+  const folderData = openFolder && openFolder !== "staticPosts" ? folderContent[openFolder] : null;
+  const activeSubfolderData = staticPostsSubfolders.find((sf) => sf.key === activeSubfolder) ?? null;
 
   return (
     <div className="relative w-full">
@@ -108,46 +153,87 @@ export function Work() {
       {hotspots.map((spot) => (
         <button
           key={spot.key}
-          onClick={() => setOpenFolder(spot.key)}
-          aria-label={folderContent[spot.key].title}
+          onClick={() => openHotspot(spot.key)}
+          aria-label={hotspotLabels[spot.key]}
           className="absolute cursor-pointer bg-transparent border-0 p-0"
           style={{ top: `${spot.top}%`, left: spot.left, width: spot.width, height: spot.height }}
         />
       ))}
 
-      {folderData && (
+      {openFolder && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
-          onClick={() => setOpenFolder(null)}
+          onClick={closeAll}
         >
           <div
             className="relative w-[70%] max-w-3xl max-h-[80vh] overflow-y-auto rounded-2xl bg-white p-8 shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => setOpenFolder(null)}
+              onClick={closeAll}
               className="absolute top-4 right-4 text-pink-500 text-xl"
               aria-label="Close"
             >
               ✕
             </button>
-            <h2 className="text-2xl font-bold text-pink-500 mb-4">{folderData.title}</h2>
 
-            {folderData.layout === "grid" ? (
-              <div className="grid grid-cols-2 gap-6">
-                {folderData.images.map((img, i) => (
-                  <ThumbnailCard key={img.src || `blank-${i}`} item={img} />
-                ))}
-              </div>
+            {openFolder === "staticPosts" ? (
+              activeSubfolderData ? (
+                // ----- Sub-folder detail view -----
+                <>
+                  <button
+                    onClick={() => setActiveSubfolder(null)}
+                    className="mb-4 text-sm font-semibold text-pink-400 hover:text-pink-500"
+                  >
+                    ← Back
+                  </button>
+                  <h2 className="text-2xl font-bold text-pink-500 mb-4">
+                    {activeSubfolderData.popupTitle}
+                  </h2>
+                  <img
+                    src={activeSubfolderData.image}
+                    alt={activeSubfolderData.popupTitle}
+                    className="w-full h-auto rounded-lg"
+                  />
+                </>
+              ) : (
+                // ----- Static Posts: list of 5 sub-folders -----
+                <>
+                  <h2 className="text-2xl font-bold text-pink-500 mb-6">Static Posts</h2>
+                  <div className="space-y-5">
+                    {staticPostsSubfolders.map((sf, i) => (
+                      <FolderRow
+                        key={sf.key}
+                        label={sf.label}
+                        tabColor={i % 2 === 0 ? "bg-pink-200" : "bg-pink-400"}
+                        onClick={() => setActiveSubfolder(sf.key)}
+                      />
+                    ))}
+                  </div>
+                </>
+              )
             ) : (
-              <>
-                <div className="grid grid-cols-2 gap-4">
-                  {folderData.images.map((img) => (
-                    <img key={img.src} src={img.src} alt="" className="w-full h-auto rounded-lg" />
-                  ))}
-                </div>
-                <div className="mt-4 w-full aspect-square rounded-lg border-2 border-dashed border-pink-200 bg-pink-50/40" />
-              </>
+              folderData && (
+                <>
+                  <h2 className="text-2xl font-bold text-pink-500 mb-4">{folderData.title}</h2>
+                  {folderData.layout === "grid" ? (
+                    <div className="grid grid-cols-2 gap-6">
+                      {folderData.images.map((img, i) => (
+                        <ThumbnailCard key={img.src || `blank-${i}`} item={img} />
+                      ))}
+                    </div>
+                  ) : (
+                    <>
+                      <div className="grid grid-cols-2 gap-4">
+                        {folderData.images.map((img) => (
+                          <img key={img.src} src={img.src} alt="" className="w-full h-auto rounded-lg" />
+                        ))}
+                      </div>
+                      <div className="mt-4 w-full aspect-square rounded-lg border-2 border-dashed border-pink-200 bg-pink-50/40" />
+                    </>
+                  )}
+                </>
+              )
             )}
           </div>
         </div>
