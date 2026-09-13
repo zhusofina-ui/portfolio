@@ -117,10 +117,8 @@ const staticPostsSubfolders: Subfolder[] = [
     label: "Platform for Youth Creativity",
     popupTitle: "Platform for Youth Creativity",
     images: [
-      { src: "/designs/static/sub-2.png", title: "Title", caption: "Short caption here" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
+      { src: "/pyc exec intros (2).png", title: "Platform for Youth Creativity, 2026", caption: "Canva" },
+      { src: "/pyc exec intros.png", title: "Platform for Youth Creativity, 2026", caption: "Canva" },
     ],
   },
   {
