@@ -75,10 +75,9 @@ const staticPostsSubfolders: Subfolder[] = [
     label: "The Youth Horizon",
     popupTitle: "The Youth Horizon",
     images: [
-      { src: "/designs/static/sub-1.png", title: "The Peer Power Project & The Youth Horizon, 2026", caption: "Canva" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
+      { src: "/The Peer Power Project & The Youth Horizon, 2026 (Canva).png", title: "The Peer Power Project & The Youth Horizon, 2026", caption: "Canva" },
+      { src: "/The Youth Horizon, 2026 (Canva)(1).png", title: "The Youth Horizon, 2026", caption: "Canva" },
+      { src: "/The Youth Horizon, 2026 (Canva).png", title: "The Youth Horizon, 2026", caption: "Canva" },
     ],
   },
   {
@@ -97,10 +96,8 @@ const staticPostsSubfolders: Subfolder[] = [
     label: "Fuse Society",
     popupTitle: "Fuse Society",
     images: [
-      { src: "/designs/static/sub-3.png", title: "Title", caption: "Short caption here" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
+      { src: "/FUSE Deadline Sept 9.png", title: "Fuse Society", caption: "Canva" },
+      { src: "/26-27 ambassador hiring introduction post.png", title: "Fuse Society", caption: "Canva" },
     ],
   },
   {
@@ -109,7 +106,6 @@ const staticPostsSubfolders: Subfolder[] = [
     popupTitle: "DECA Chapter",
     images: [
       { src: "/designs/static/sub-4.png", title: "Title", caption: "Short caption here" },
-      { src: "", title: "", caption: "" },
       { src: "", title: "", caption: "" },
       { src: "", title: "", caption: "" },
     ],
@@ -164,7 +160,7 @@ function ThumbnailCard({
       )}
       {item.title ? (
         <h3
-          className="mt-2 text-sm font-semibold bg-gradient-to-r from-[#a3c167] to-[#c1d4b9] bg-clip-text text-transparent"
+          className="mt-2 text-sm font-semibold bg-gradient-to-r from-[#8fad54] to-[#c1d4b9] bg-clip-text text-transparent"
           style={titleFont ? { fontFamily: "var(--font-title)" } : undefined}
         >
           {item.title}
@@ -212,7 +208,7 @@ export function Work() {
   return (
     <div className="relative w-full">
       <img
-        src="/portfoliocover-02.png"
+        src="/portfoliocover.png"
         alt="Work station"
         className="w-full h-auto block"
       />
