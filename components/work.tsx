@@ -28,8 +28,13 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
     images: [
       {
         src: "/Daily Bread Food Bank & The Youth Horizon, 2026.png",
-        title: "Daily Bread Food Bank",
-        caption: "Your caption here",
+        title: "Daily Bread Food Bank & The Youth Horizon, 2026",
+        caption: "Canva",
+      },
+      {
+        src: "/2-imageonline.co-merged (4).png",
+        title: "The Peer Power Project & The Youth Horizon, 2026",
+        caption: "Canva",
       },
     ],
   },
