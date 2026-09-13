@@ -173,7 +173,7 @@ function ThumbnailCard({
         <div className="mt-2 h-3.5 w-2/3 rounded bg-pink-50/60" />
       )}
       {item.caption ? (
-        <p className="text-xs text-gray-500">{item.caption}</p>
+        <p className="text-sm text-pink-200 ">{item.caption}</p>
       ) : (
         <div className="mt-1 h-2.5 w-1/2 rounded bg-pink-50/40" />
       )}
