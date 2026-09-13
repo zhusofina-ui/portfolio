@@ -1,4 +1,3 @@
-import InteractiveWhiteboard from '@/components/ui/drawing'
 import { Hero } from '@/components/hero'
 import { About } from '@/components/about'
 import { Work } from '@/components/work'
@@ -10,7 +9,6 @@ export default function Page() {
       <Hero />
       <About />
       <Work />
-      <InteractiveWhiteboard />
       <Contact />
     </main>
   )

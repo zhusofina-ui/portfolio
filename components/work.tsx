@@ -1,7 +1,7 @@
 export function Work() {
   return (
     <img
-      src="/portfoliocover-03.png"
+      src="/portfoliocover-02.png"
       alt="About me"
       className="w-full h-auto"
     />
