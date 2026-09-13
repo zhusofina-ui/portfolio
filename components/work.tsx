@@ -47,6 +47,12 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
         title: "mello, 2026",
         caption: "mello is a concept café & bakery brand built around a whimsical and sweet visual identity that includes illustrated desserts, drinks, and details to create a warm, 'collected by hand' feel. (Canva)",
       },
+      {
+        src: "/fusexblume (7)-imageonline.co-merged-imageonline.co-merged.png",
+        title: "Fuse Society & Blume, 2026",
+        caption: "A collaborative pitch deck for an established partnership between Fuse Society (www.fusesociety.ca), a youth-driven platform, and established wellness brand Blume (itsblume.com), utilizing soft gradients and brand typography . (Canva)",
+
+      }
     ],
   },
   photography: {
