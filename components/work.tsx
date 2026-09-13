@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-type FolderKey =
+export type FolderKey =
   | "staticPosts"
   | "carousels"
   | "branding"
@@ -9,9 +9,13 @@ type FolderKey =
   | "videography"
   | "misc";
 
-type ImageItem = { src: string; title?: string; caption?: string };
+export type ImageItem = {
+  src: string;
+  title?: string;
+  caption?: string;
+};
 
-type FolderData = {
+export type FolderData = {
   title: string;
   layout: "grid" | "single";
   images: ImageItem[];
@@ -21,32 +25,65 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
   carousels: {
     title: "Carousels",
     layout: "single",
-    images: [{ src: "/designs/carousel-1.png" }],
+    images: [
+      {
+        src: "/Daily Bread Food Bank & The Youth Horizon, 2026.png",
+        title: "Daily Bread Food Bank & The Youth Horizon, 2026",
+        caption: "Canva",
+      },
+      {
+        src: "/2-imageonline.co-merged (4).png",
+        title: "The Peer Power Project & The Youth Horizon, 2026",
+        caption: "Canva",
+      },
+      {
+        src: "/_lY.png",
+        title: "Fuse Society, 2026",
+        caption: "Canva",
+      },
+    ],
   },
   branding: {
     title: "Branding & Collaborations",
     layout: "single",
-    images: [{ src: "/designs/branding-1.png" }],
+    images: [
+      {
+        src: "/2-imageonline.co-merged-imageonline.co-merged (1).png",
+        title: "mello, 2026",
+        caption: "mello is a concept café & bakery brand built around a whimsical and sweet visual identity that includes illustrated desserts, drinks, and details to create a warm, 'collected by hand' feel. (Canva)",
+      },
+      {
+        src: "/fusexblume (7)-imageonline.co-merged-imageonline.co-merged.png",
+        title: "Fuse Society & Blume, 2026",
+        caption: "A collaborative pitch deck for a partnership between Fuse Society (fusesociety.ca), a youth-driven platform, and established wellness brand Blume (itsblume.com), utilizing soft gradients and branded typography. (Canva)",
+      },
+    ],
   },
   photography: {
     title: "Photography",
     layout: "grid",
     images: [
-      { src: "/content/photo-1.png", title: "Photo title", caption: "Short caption here" },
-      { src: "", title: "", caption: "" },
+      { src: "IMG_7250.JPG", title: "ocean, 2026", caption: "canon digital IXUS 900 ti" },
+      { src: "IMG_7366.JPG", title: "shiny lamp, 2026", caption: "canon digital IXUS 900 ti" },
+      { src: "IMG_7359.JPG", title: "magic 8 ball, 2026", caption: "canon digital IXUS 900 ti" },
+      { src: "IMG_7284.JPG", title: "bateau, 2026", caption: "canon digital IXUS 900 ti" },
+      { src: "IMG_7252.JPG", title: "smooth sailing, 2026", caption: "canon digital IXUS 900 ti" },
+      { src: "IMG_7432.JPG", title: "美国人, 2026", caption: "canon digital IXUS 900 ti" },
     ],
   },
   videography: {
     title: "Videography",
-    layout: "single",
-    images: [{ src: "/content/video-1.png" }],
+    layout: "grid",
+    images: [{ src: "/content/video-1.png", title: "new content coming soon!", caption: "come back later!" }],
   },
   misc: {
     title: "Miscellaneous",
     layout: "grid",
     images: [
-      { src: "/content/misc-1.png", title: "Title", caption: "Short caption here" },
-      { src: "", title: "", caption: "" },
+      { src: "flower1.png", title: "kaleidoscope", caption: "watercolour, Ø 20 cm" },
+      { src: "flower2.png", title: "pinkie pie", caption: "watercolour, Ø 20 cm" },
+      { src: "/sofinazhu.resume (4)_page-0001.jpg", title: "Check out my resume!", caption: "" },
+
     ],
   },
 };
@@ -66,7 +103,7 @@ type Subfolder = {
   key: SubfolderKey;
   label: string;
   popupTitle: string;
-  images: ImageItem[]; // 4 slots, A4-proportioned
+  images: ImageItem[];
 };
 
 const staticPostsSubfolders: Subfolder[] = [
@@ -75,21 +112,18 @@ const staticPostsSubfolders: Subfolder[] = [
     label: "The Youth Horizon",
     popupTitle: "The Youth Horizon",
     images: [
-      { src: "/designs/static/sub-1.png", title: "The Peer Power Project & The Youth Horizon, 2026", caption: "Canva" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
+      { src: "/The Peer Power Project & The Youth Horizon, 2026 (Canva).png", title: "The Peer Power Project", caption: "Canva" },
+      { src: "/The Youth Horizon, 2026 (Canva)(1).png", title: "The Youth Horizon", caption: "Canva" },
+      { src: "/The Youth Horizon, 2026 (Canva).png", title: "The Youth Horizon", caption: "Canva" },
     ],
   },
   {
     key: "sub2",
-    label: "Plaform for Youth Creativity",
-    popupTitle: "Plaform for Youth Creativity",
+    label: "Platform for Youth Creativity",
+    popupTitle: "Platform for Youth Creativity",
     images: [
-      { src: "/designs/static/sub-2.png", title: "Title", caption: "Short caption here" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
+      { src: "/pyc exec intros (2).png", title: "Platform for Youth Creativity, 2026", caption: "Canva" },
+      { src: "/pyc exec intros.png", title: "Platform for Youth Creativity, 2026", caption: "Canva" },
     ],
   },
   {
@@ -97,21 +131,19 @@ const staticPostsSubfolders: Subfolder[] = [
     label: "Fuse Society",
     popupTitle: "Fuse Society",
     images: [
-      { src: "/designs/static/sub-3.png", title: "Title", caption: "Short caption here" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
+      { src: "/FUSE Deadline Sept 9.png", title: "Fuse Society", caption: "Canva" },
+      { src: "/26-27 ambassador hiring introduction post.png", title: "Fuse Society", caption: "Canva" },
+      { src: "/_lY.png", title: "Fuse Society", caption: "Canva" },
     ],
   },
   {
     key: "sub4",
-    label: "DECA Chapter",
+    label: "MDHS DECA Chapter",
     popupTitle: "DECA Chapter",
     images: [
-      { src: "/designs/static/sub-4.png", title: "Title", caption: "Short caption here" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
+      { src: "/DECA Chapter Grade 9 Day, 2026 (Canva).png", title: "MDHS DECA Chapter", caption: "Canva" },
+      { src: "/deca intro meeting.png", title: "MDHS DECA Chapter", caption: "Canva" },
+      { src: "/deca is back post.png", title: "MDHS DECA Chapter", caption: "Canva" },
     ],
   },
   {
@@ -119,52 +151,50 @@ const staticPostsSubfolders: Subfolder[] = [
     label: "Independent Designs",
     popupTitle: "Independent Designs",
     images: [
-      { src: "/designs/static/sub-5.png", title: "Title", caption: "Short caption here" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
+      { src: "/drink poster.png", title: "Independent Design", caption: "Canva" },
     ],
   },
 ];
 
-const VERTICAL_SHIFT = -11.5; // % — negative moves hotspots up.
+const VERTICAL_SHIFT = -11.5;
 
 const hotspots: { key: FolderKey; top: number; left: string; width: string; height: string }[] = [
-  { key: "staticPosts", top: 62.0 + VERTICAL_SHIFT, left: "4.7%",  width: "23.5%", height: "10.5%" },
-  { key: "carousels",   top: 73.5 + VERTICAL_SHIFT, left: "4.7%",  width: "23.5%", height: "10.5%" },
-  { key: "branding",    top: 85.0 + VERTICAL_SHIFT, left: "4.7%",  width: "23.5%", height: "10.5%" },
+  { key: "staticPosts", top: 62.0 + VERTICAL_SHIFT, left: "4.7%", width: "23.5%", height: "10.5%" },
+  { key: "carousels", top: 73.5 + VERTICAL_SHIFT, left: "4.7%", width: "23.5%", height: "10.5%" },
+  { key: "branding", top: 85.0 + VERTICAL_SHIFT, left: "4.7%", width: "23.5%", height: "10.5%" },
   { key: "photography", top: 62.0 + VERTICAL_SHIFT, left: "32.0%", width: "23.5%", height: "10.5%" },
   { key: "videography", top: 73.5 + VERTICAL_SHIFT, left: "32.0%", width: "23.5%", height: "10.5%" },
-  { key: "misc",        top: 85.0 + VERTICAL_SHIFT, left: "32.0%", width: "23.5%", height: "10.5%" },
+  { key: "misc", top: 85.0 + VERTICAL_SHIFT, left: "32.0%", width: "23.5%", height: "10.5%" },
 ];
 
-// "square" = 1:1 (photography/misc thumbnails). "a4" = 210:297 portrait (Static Posts sub-folders).
-// titleFont = true swaps the <h3> below the image to var(--font-title) instead of the default site font.
 function ThumbnailCard({
   item,
   aspect = "square",
   titleFont = false,
+  onZoom,
 }: {
   item: ImageItem;
   aspect?: "square" | "a4";
   titleFont?: boolean;
+  onZoom?: (src: string) => void;
 }) {
   const aspectClass = aspect === "a4" ? "aspect-[210/297]" : "aspect-square";
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       {item.src ? (
         <img
           src={item.src}
           alt={item.title ?? ""}
-          className={`w-full ${aspectClass} object-contain rounded-lg bg-pink-50/40`}
+          onClick={() => onZoom && onZoom(item.src)}
+          className={`w-full ${aspectClass} object-contain rounded-lg bg-pink-50/40 ${onZoom ? 'cursor-zoom-in' : ''}`}
         />
       ) : (
         <div className={`w-full ${aspectClass} rounded-lg border-2 border-dashed border-pink-200 bg-pink-50/40`} />
       )}
       {item.title ? (
         <h3
-          className="mt-2 text-sm font-semibold bg-gradient-to-r from-[#a3c167] to-[#c1d4b9] bg-clip-text text-transparent"
+          className="mt-2 text-sm font-semibold bg-gradient-to-r from-[#8fad54] to-[#c1d4b9] bg-clip-text text-transparent"
           style={titleFont ? { fontFamily: "var(--font-title)" } : undefined}
         >
           {item.title}
@@ -173,7 +203,7 @@ function ThumbnailCard({
         <div className="mt-2 h-3.5 w-2/3 rounded bg-pink-50/60" />
       )}
       {item.caption ? (
-        <p className="text-sm text-pink-200 ">{item.caption}</p>
+        <p className="text-sm text-pink-200">{item.caption}</p>
       ) : (
         <div className="mt-1 h-2.5 w-1/2 rounded bg-pink-50/40" />
       )}
@@ -195,6 +225,7 @@ function FolderRow({ label, tabColor, onClick }: { label: string; tabColor: stri
 export function Work() {
   const [openFolder, setOpenFolder] = useState<FolderKey | null>(null);
   const [activeSubfolder, setActiveSubfolder] = useState<SubfolderKey | null>(null);
+  const [zoomedImage, setZoomedImage] = useState<string | null>(null);
 
   const closeAll = () => {
     setOpenFolder(null);
@@ -212,7 +243,7 @@ export function Work() {
   return (
     <div className="relative w-full">
       <img
-        src="/portfoliocover-02.png"
+        src="/portfoliocover.png"
         alt="Work station"
         className="w-full h-auto block"
       />
@@ -246,7 +277,6 @@ export function Work() {
 
             {openFolder === "staticPosts" ? (
               activeSubfolderData ? (
-                // ----- Sub-folder detail view: 2x2 grid of A4-proportioned images -----
                 <>
                   <button
                     onClick={() => setActiveSubfolder(null)}
@@ -263,13 +293,12 @@ export function Work() {
                         key={img.src || `${activeSubfolderData.key}-blank-${i}`}
                         item={img}
                         aspect="a4"
-                        titleFont
+                        onZoom={(src) => setZoomedImage(src)}
                       />
                     ))}
                   </div>
                 </>
               ) : (
-                // ----- Static Posts: list of 5 sub-folders -----
                 <>
                   <h2 className="text-2xl font-bold text-pink-500 mb-6">Static Posts</h2>
                   <div className="space-y-5">
@@ -291,23 +320,58 @@ export function Work() {
                   {folderData.layout === "grid" ? (
                     <div className="grid grid-cols-2 gap-6">
                       {folderData.images.map((img, i) => (
-                        <ThumbnailCard key={img.src || `blank-${i}`} item={img} />
+                        <ThumbnailCard 
+                          key={img.src || `blank-${i}`} 
+                          item={img} 
+                          onZoom={(src) => setZoomedImage(src)}
+                        />
                       ))}
                     </div>
                   ) : (
-                    <>
-                      <div className="grid grid-cols-2 gap-4">
-                        {folderData.images.map((img) => (
-                          <img key={img.src} src={img.src} alt="" className="w-full h-auto rounded-lg" />
-                        ))}
-                      </div>
-                      <div className="mt-4 w-full aspect-square rounded-lg border-2 border-dashed border-pink-200 bg-pink-50/40" />
-                    </>
+                    <div className="flex flex-col gap-10">
+                      {folderData.images.map((img, i) => (
+                        <div key={img.src || `blank-${i}`} className="flex flex-col w-full">
+                          {img.src ? (
+                            <img 
+                              src={img.src} 
+                              alt={img.title || ""} 
+                              onClick={() => setZoomedImage(img.src)}
+                              className="w-full h-auto object-contain rounded-lg shadow-sm bg-pink-50/40 cursor-zoom-in" 
+                            />
+                          ) : (
+                            <div className="w-full h-64 rounded-lg border-2 border-dashed border-pink-200 bg-pink-50/40" />
+                          )}
+                          
+                          {img.title && (
+                            <h3 className="mt-3 text-lg font-bold bg-gradient-to-r from-[#8fad54] to-[#c1d4b9] bg-clip-text text-transparent">
+                              {img.title}
+                            </h3>
+                          )}
+                          {img.caption && (
+                            <p className="mt-1 text-sm text-pink-400">{img.caption}</p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
                   )}
                 </>
               )
             )}
           </div>
+        </div>
+      )}
+
+      {/* Full Screen Image Zoom Overlay */}
+      {zoomedImage && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 cursor-zoom-out"
+          onClick={() => setZoomedImage(null)}
+        >
+          <img 
+            src={zoomedImage} 
+            alt="Zoomed full size" 
+            className="max-w-full max-h-full object-contain"
+          />
         </div>
       )}
     </div>
