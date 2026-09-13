@@ -58,10 +58,12 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
     title: "Photography",
     layout: "grid",
     images: [
-      { src: "IMG_7250.JPG", title: "ocean", caption: "canon digital IXUS 900 ti" },
-      { src: "IMG_7366.JPG", title: "shiny lamp", caption: "canon digital IXUS 900 ti" },
-      { src: "IMG_7359.JPG", title: "magic 8 ball", caption: "canon digital IXUS 900 ti" },
-      { src: "IMG_7284.JPG", title: "bateau", caption: "canon digital IXUS 900 ti" },
+      { src: "IMG_7250.JPG", title: "ocean, 2026", caption: "canon digital IXUS 900 ti" },
+      { src: "IMG_7366.JPG", title: "shiny lamp, 2026", caption: "canon digital IXUS 900 ti" },
+      { src: "IMG_7359.JPG", title: "magic 8 ball, 2026", caption: "canon digital IXUS 900 ti" },
+      { src: "IMG_7284.JPG", title: "bateau, 2026", caption: "canon digital IXUS 900 ti" },
+      { src: "IMG_7252.JPG", title: "smooth sailing, 2026", caption: "canon digital IXUS 900 ti" },
+      { src: "IMG_7432.JPG", title: "美国人, 2026", caption: "canon digital IXUS 900 ti" },
     ],
   },
   videography: {
