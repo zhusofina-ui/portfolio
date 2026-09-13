@@ -21,7 +21,7 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
   carousels: {
     title: "Carousels",
     layout: "single",
-    images: [{ src: "/designs/carousel-1.png" }],
+    images: [{ src: "/designs/carousel-1.png" }], 
   },
   branding: {
     title: "Branding & Collaborations",
@@ -60,22 +60,71 @@ const hotspotLabels: Record<FolderKey, string> = {
   misc: "Miscellaneous",
 };
 
-// The 5 sub-folders that live inside Static Posts
 type SubfolderKey = "sub1" | "sub2" | "sub3" | "sub4" | "sub5";
 
 type Subfolder = {
   key: SubfolderKey;
-  label: string;      // text shown on the folder row itself — rename these
-  popupTitle: string; // custom title shown once that sub-folder is opened
-  image: string;      // the uploaded image for this sub-folder
+  label: string;
+  popupTitle: string;
+  images: ImageItem[]; 
 };
 
 const staticPostsSubfolders: Subfolder[] = [
-  { key: "sub1", label: "The Youth Horizon", popupTitle: "The Youth Horizon", image: "/designs/static/sub-1.png" },
-  { key: "sub2", label: "Platform for Youth Creativity", popupTitle: "Plaform for Youth Creativity", image: "/designs/static/sub-2.png" },
-  { key: "sub3", label: "Fuse Society", popupTitle: "Fuse Society", image: "/designs/static/sub-3.png" },
-  { key: "sub4", label: "DECA Chapter", popupTitle: "DECA Chapter", image: "/designs/static/sub-4.png" },
-  { key: "sub5", label: "Independent Designs", popupTitle: "Independent Designs", image: "/designs/static/sub-5.png" },
+  {
+    key: "sub1",
+    label: "The Youth Horizon",
+    popupTitle: "The Youth Horizon",
+    images: [
+      { src: "/The Peer Power Project & The Youth Horizon, 2026 (Canva).png", title: "The Peer Power Project & The Youth Horizon, 2026", caption: "Canva" },
+      { src: "", title: "", caption: "" },
+      { src: "", title: "", caption: "" },
+      { src: "", title: "", caption: "" },
+    ],
+  },
+  {
+    key: "sub2",
+    label: "Plaform for Youth Creativity",
+    popupTitle: "Plaform for Youth Creativity",
+    images: [
+      { src: "/designs/static/sub-2.png", title: "Title", caption: "Short caption here" },
+      { src: "", title: "", caption: "" },
+      { src: "", title: "", caption: "" },
+      { src: "", title: "", caption: "" },
+    ],
+  },
+  {
+    key: "sub3",
+    label: "Fuse Society",
+    popupTitle: "Fuse Society",
+    images: [
+      { src: "/designs/static/sub-3.png", title: "Title", caption: "Short caption here" },
+      { src: "", title: "", caption: "" },
+      { src: "", title: "", caption: "" },
+      { src: "", title: "", caption: "" },
+    ],
+  },
+  {
+    key: "sub4",
+    label: "DECA Chapter",
+    popupTitle: "DECA Chapter",
+    images: [
+      { src: "/designs/static/sub-4.png", title: "Title", caption: "Short caption here" },
+      { src: "", title: "", caption: "" },
+      { src: "", title: "", caption: "" },
+      { src: "", title: "", caption: "" },
+    ],
+  },
+  {
+    key: "sub5",
+    label: "Independent Designs",
+    popupTitle: "Independent Designs",
+    images: [
+      { src: "/designs/static/sub-5.png", title: "Title", caption: "Short caption here" },
+      { src: "", title: "", caption: "" },
+      { src: "", title: "", caption: "" },
+      { src: "", title: "", caption: "" },
+    ],
+  },
 ];
 
 const VERTICAL_SHIFT = -11.5; // % — negative moves hotspots up.
@@ -93,7 +142,7 @@ function ThumbnailCard({ item }: { item: ImageItem }) {
   return (
     <div className="flex flex-col">
       {item.src ? (
-        <img src={item.src} alt={item.title ?? ""} className="w-full aspect-square object-cover rounded-lg" />
+        <img src={item.src} alt={item.title ?? ""} className="w-full aspect-square object-contain rounded-lg" />
       ) : (
         <div className="w-full aspect-square rounded-lg border-2 border-dashed border-pink-200 bg-pink-50/40" />
       )}
@@ -111,8 +160,6 @@ function ThumbnailCard({ item }: { item: ImageItem }) {
   );
 }
 
-// Styled to match your folder-row reference image: a small colored tab peeking
-// above a white rounded rectangle.
 function FolderRow({ label, tabColor, onClick }: { label: string; tabColor: string; onClick: () => void }) {
   return (
     <button onClick={onClick} className="relative block w-full text-left">
@@ -134,7 +181,7 @@ export function Work() {
   };
 
   const openHotspot = (key: FolderKey) => {
-    setActiveSubfolder(null); // always land on the folder list, never a leftover subfolder view
+    setActiveSubfolder(null);
     setOpenFolder(key);
   };
 
@@ -178,7 +225,7 @@ export function Work() {
 
             {openFolder === "staticPosts" ? (
               activeSubfolderData ? (
-                // ----- Sub-folder detail view -----
+                // ----- Sub-folder detail view: 2x2 grid, each image with title + caption -----
                 <>
                   <button
                     onClick={() => setActiveSubfolder(null)}
@@ -186,14 +233,14 @@ export function Work() {
                   >
                     ← Back
                   </button>
-                  <h2 className="text-2xl font-bold text-pink-500 mb-4">
+                  <h2 className="text-2xl font-bold text-pink-500 mb-6">
                     {activeSubfolderData.popupTitle}
                   </h2>
-                  <img
-                    src={activeSubfolderData.image}
-                    alt={activeSubfolderData.popupTitle}
-                    className="w-full h-auto rounded-lg"
-                  />
+                  <div className="grid grid-cols-2 gap-6">
+                    {activeSubfolderData.images.map((img, i) => (
+                      <ThumbnailCard key={img.src || `${activeSubfolderData.key}-blank-${i}`} item={img} aspect="a4" />
+                    ))}
+                  </div>
                 </>
               ) : (
                 // ----- Static Posts: list of 5 sub-folders -----
