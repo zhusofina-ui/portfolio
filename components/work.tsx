@@ -152,6 +152,7 @@ const staticPostsSubfolders: Subfolder[] = [
     popupTitle: "Independent Designs",
     images: [
       { src: "/drink poster.png", title: "Independent Design", caption: "Canva" },
+      { src: "/gaussianstar.png", title: "Independent Design", caption: "Adobe Illustrator CC 2026" },
     ],
   },
 ];
