@@ -45,7 +45,7 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
       {
         src: "/2-imageonline.co-merged-imageonline.co-merged (1).png",
         title: "mello, 2026",
-        caption: "mello is a concept café & bakery brand built around a whimsical and sweet visual identity that includes illustrated desserts, drinks, and details to create a warm, 'collected by hand' feel.",
+        caption: "mello is a concept café & bakery brand built around a whimsical and sweet visual identity that includes illustrated desserts, drinks, and details to create a warm, 'collected by hand' feel. (Canva)",
       },
       {
         src: "/fusexblume (7)-imageonline.co-merged-imageonline.co-merged.png",
@@ -69,14 +69,16 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
   videography: {
     title: "Videography",
     layout: "grid",
-    images: [{ src: "/content/video-1.png", title: "Video Title", caption: "Video caption" }],
+    images: [{ src: "/content/video-1.png", title: "new content coming soon!", caption: "come back later!" }],
   },
   misc: {
     title: "Miscellaneous",
     layout: "grid",
     images: [
-      { src: "/content/misc-1.png", title: "Title", caption: "Short caption here" },
-      { src: "", title: "", caption: "" },
+      { src: "flower1.png", title: "kaleidoscope", caption: "watercolour, Ø 20 cm" },
+      { src: "flower2.png", title: "pinkie pie", caption: "watercolour, Ø 20 cm" },
+      { src: "/sofinazhu.resume (4)_page-0001.jpg", title: "Check out my resume!", caption: "" },
+
     ],
   },
 };
