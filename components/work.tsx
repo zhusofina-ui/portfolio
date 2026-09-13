@@ -9,12 +9,10 @@ type FolderKey =
   | "videography"
   | "misc";
 
-type ImageItem = { src: string; title?: string; caption?: string };
-
-type FolderData = {
-  title: string;
-  layout: "grid" | "single";
-  images: ImageItem[];
+type ImageItem = {
+  label: string;
+  popupTitle: string;
+  images: ImageItem[]; // 4 slots, A4-proportioned
 };
 
 const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
@@ -22,11 +20,8 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
     title: "Carousels",
     layout: "single",
     images: [
-      { 
-        src: "/Daily Bread Food Bank & The Youth Horizon, 2026.png", 
-        title: "eeeeeeeeeee", 
-        caption: "Your caption here" 
-      }
+      { src: "/.png", title: "Title", caption: "Short caption here" },
+      { src: "", title: "", caption: "" },
     ],
   },
   branding: {
