@@ -28,9 +28,14 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
     images: [
       {
         src: "/Daily Bread Food Bank & The Youth Horizon, 2026.png",
-        title: "Daily Bread Food Bank",
-        caption: "Your caption here",
+        title: "Daily Bread Food Bank & The Youth Horizon, 2026",
+        caption: "Adobe Photoshop CC 2026 & Canva",
       },
+      {
+        src: "/The Peer Power Project & The Youth Horizon, 2026 (Canva) (1).png",
+        title: "The Peer Power Project & The Youth Horizon, 2026",
+        caption: "Canva",
+      }
     ],
   },
   branding: {
@@ -38,9 +43,9 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
     layout: "single",
     images: [
       {
-        src: "/designs/branding-1.png",
-        title: "Your Title Here",
-        caption: "Your caption here",
+        src: "/2-imageonline.co-merged-imageonline.co-merged (1).png",
+        title: "mello, 2026",
+        caption: "mello is a concept café & bakery brand built around a whimsical and sweet visual identity that includes illustrated desserts, drinks, and details to create a warm, 'collected by hand' feel. (Canva)",
       },
     ],
   },
