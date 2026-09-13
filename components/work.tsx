@@ -23,7 +23,7 @@ export type FolderData = {
 
 const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
   carousels: {
-    title: "Carousels",
+    title: "Carousels & Banners",
     layout: "single",
     images: [
       {
@@ -243,7 +243,7 @@ export function Work() {
   return (
     <div className="relative w-full">
       <img
-        src="/portfoliocover.png"
+        src="/portfoliocover-02.png"
         alt="Work station"
         className="w-full h-auto block"
       />
