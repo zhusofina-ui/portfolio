@@ -17,7 +17,6 @@ type FolderData = {
   images: ImageItem[];
 };
 
-// Data for every folder EXCEPT staticPosts — that one has its own sub-folder flow below.
 const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
   carousels: {
     title: "Carousels",
@@ -72,11 +71,11 @@ type Subfolder = {
 };
 
 const staticPostsSubfolders: Subfolder[] = [
-  { key: "sub1", label: "Subfolder 1", popupTitle: "Custom Title 1", image: "/designs/static/sub-1.png" },
-  { key: "sub2", label: "Subfolder 2", popupTitle: "Custom Title 2", image: "/designs/static/sub-2.png" },
-  { key: "sub3", label: "Subfolder 3", popupTitle: "Custom Title 3", image: "/designs/static/sub-3.png" },
-  { key: "sub4", label: "Subfolder 4", popupTitle: "Custom Title 4", image: "/designs/static/sub-4.png" },
-  { key: "sub5", label: "Subfolder 5", popupTitle: "Custom Title 5", image: "/designs/static/sub-5.png" },
+  { key: "sub1", label: "The Youth Horizon", popupTitle: "The Youth Horizon", image: "/designs/static/sub-1.png" },
+  { key: "sub2", label: "Platform for Youth Creativity", popupTitle: "Plaform for Youth Creativity", image: "/designs/static/sub-2.png" },
+  { key: "sub3", label: "Fuse Society", popupTitle: "Fuse Society", image: "/designs/static/sub-3.png" },
+  { key: "sub4", label: "DECA Chapter", popupTitle: "DECA Chapter", image: "/designs/static/sub-4.png" },
+  { key: "sub5", label: "Independent Designs", popupTitle: "Independent Designs", image: "/designs/static/sub-5.png" },
 ];
 
 const VERTICAL_SHIFT = -11.5; // % — negative moves hotspots up.
