@@ -1,33 +1,9 @@
-import { Squiggle } from '@/components/doodles'
-
 export function Contact() {
   return (
-    <section
-      id="contact"
-      className="relative overflow-hidden bg-blush py-28"
-      aria-labelledby="contact-heading"
-    >
-     <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
-  <h2
-    id="contact-heading"
-    className="text-4xl font-normal leading-tight text-cocoa sm:text-6xl"
-  >
-    let&apos;s build something{' '}
-    <span className="text-5xl text-cream drop-shadow-sm sm:text-7xl">
-  fun!
-</span>
-  </h2>
-
-  <a
-    href="mailto:sofinazhu2023@gmail.com"
-    className="mt-10 inline-block border-b-4 border-cocoa/50 pb-1 text-2xl font-normal text-cocoa transition-colors hover:border-pink hover:text-pink sm:text-4x"
-  >
-    sofinazhu2023@gmail.com
-  </a>
-
-  <Squiggle className="mx-auto mt-12 h-6 w-40 text-pink" />
-
-</div>
-    </section>
-  )
+    <img
+      src="/portfoliocover-04.png"
+      alt="About me"
+      className="w-full h-auto"
+    />
+  );
 }
