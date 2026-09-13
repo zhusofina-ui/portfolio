@@ -59,7 +59,7 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
     title: "Photography",
     layout: "grid",
     images: [
-      { src: "/content/photo-1.png", title: "Photo title", caption: "Short caption here" },
+      { src: "/IMG_7250.JPG", title: "Photo title", caption: "Short caption here" },
       { src: "", title: "", caption: "" },
     ],
   },
