@@ -21,7 +21,7 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
   carousels: {
     title: "Carousels",
     layout: "single",
-    images: [{ src: "/designs/carousel-1.png" }], 
+    images: [{ src: "/designs/carousel-1.png" }],
   },
   branding: {
     title: "Branding & Collaborations",
@@ -66,7 +66,7 @@ type Subfolder = {
   key: SubfolderKey;
   label: string;
   popupTitle: string;
-  images: ImageItem[]; 
+  images: ImageItem[]; // 4 slots, A4-proportioned
 };
 
 const staticPostsSubfolders: Subfolder[] = [
@@ -75,7 +75,7 @@ const staticPostsSubfolders: Subfolder[] = [
     label: "The Youth Horizon",
     popupTitle: "The Youth Horizon",
     images: [
-      { src: "/The Peer Power Project & The Youth Horizon, 2026 (Canva).png", title: "The Peer Power Project & The Youth Horizon, 2026", caption: "Canva" },
+      { src: "/designs/static/sub-1.png", title: "The Peer Power Project & The Youth Horizon, 2026", caption: "Canva" },
       { src: "", title: "", caption: "" },
       { src: "", title: "", caption: "" },
       { src: "", title: "", caption: "" },
@@ -138,16 +138,37 @@ const hotspots: { key: FolderKey; top: number; left: string; width: string; heig
   { key: "misc",        top: 85.0 + VERTICAL_SHIFT, left: "32.0%", width: "23.5%", height: "10.5%" },
 ];
 
-function ThumbnailCard({ item }: { item: ImageItem }) {
+// "square" = 1:1 (photography/misc thumbnails). "a4" = 210:297 portrait (Static Posts sub-folders).
+// titleFont = true swaps the <h3> below the image to var(--font-title) instead of the default site font.
+function ThumbnailCard({
+  item,
+  aspect = "square",
+  titleFont = false,
+}: {
+  item: ImageItem;
+  aspect?: "square" | "a4";
+  titleFont?: boolean;
+}) {
+  const aspectClass = aspect === "a4" ? "aspect-[210/297]" : "aspect-square";
+
   return (
     <div className="flex flex-col">
       {item.src ? (
-        <img src={item.src} alt={item.title ?? ""} className="w-full aspect-square object-contain rounded-lg" />
+        <img
+          src={item.src}
+          alt={item.title ?? ""}
+          className={`w-full ${aspectClass} object-contain rounded-lg bg-pink-50/40`}
+        />
       ) : (
-        <div className="w-full aspect-square rounded-lg border-2 border-dashed border-pink-200 bg-pink-50/40" />
+        <div className={`w-full ${aspectClass} rounded-lg border-2 border-dashed border-pink-200 bg-pink-50/40`} />
       )}
       {item.title ? (
-        <h3 className="mt-2 text-sm font-semibold text-gray-800">{item.title}</h3>
+        <h3
+          className="mt-2 text-sm font-semibold text-gray-800"
+          style={titleFont ? { fontFamily: "var(--font-title)" } : undefined}
+        >
+          {item.title}
+        </h3>
       ) : (
         <div className="mt-2 h-3.5 w-2/3 rounded bg-pink-50/60" />
       )}
@@ -225,7 +246,7 @@ export function Work() {
 
             {openFolder === "staticPosts" ? (
               activeSubfolderData ? (
-                // ----- Sub-folder detail view: 2x2 grid, each image with title + caption -----
+                // ----- Sub-folder detail view: 2x2 grid of A4-proportioned images -----
                 <>
                   <button
                     onClick={() => setActiveSubfolder(null)}
@@ -238,14 +259,19 @@ export function Work() {
                   </h2>
                   <div className="grid grid-cols-2 gap-6">
                     {activeSubfolderData.images.map((img, i) => (
-                      <ThumbnailCard key={img.src || `${activeSubfolderData.key}-blank-${i}`} item={img} aspect="a4" />
+                      <ThumbnailCard
+                        key={img.src || `${activeSubfolderData.key}-blank-${i}`}
+                        item={img}
+                        aspect="a4"
+                        titleFont
+                      />
                     ))}
                   </div>
                 </>
               ) : (
                 // ----- Static Posts: list of 5 sub-folders -----
                 <>
-                  <h2 className="text-2xl font-bold text-pink-500 mb-6">Static Posts</h2>
+                  <h2 className="text-2xl font-bold text-green-500 mb-6">Static Posts</h2>
                   <div className="space-y-5">
                     {staticPostsSubfolders.map((sf, i) => (
                       <FolderRow

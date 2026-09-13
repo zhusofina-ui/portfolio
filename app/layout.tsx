@@ -3,10 +3,11 @@ import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 
-import { Baloo_2 } from 'next/font/google'
+import { Atkinson_Hyperlegible } from 'next/font/google'
 
-const titleFont = Baloo_2({
+const titleFont = Atkinson_Hyperlegible ({
   subsets: ['latin'],
+  weight: ['400'], 
   variable: '--font-title',
   display: 'swap',
 })
@@ -32,8 +33,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-        <html lang="en" className={`bg-background ${titleFont.variable}`}>
-        <body className={`${monberg.className} antialiased`}>
+          <html lang="en" className={`bg-background ${titleFont.variable}`}>
+          <body className={`${monberg.className} antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
