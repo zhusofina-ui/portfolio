@@ -21,12 +21,24 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
   carousels: {
     title: "Carousels",
     layout: "single",
-    images: [{ src: "/designs/carousel-1.png" }],
+    images: [
+      { 
+        src: "/Daily Bread Food Bank & The Youth Horizon, 2026.png", 
+        title: "eeeeeeeeeee", 
+        caption: "Your caption here" 
+      }
+    ],
   },
   branding: {
     title: "Branding & Collaborations",
     layout: "single",
-    images: [{ src: "/designs/branding-1.png" }],
+    images: [
+      { 
+        src: "/designs/branding-1.png", 
+        title: "Your Title Here", 
+        caption: "Your caption here" 
+      }
+    ],
   },
   photography: {
     title: "Photography",
@@ -102,12 +114,12 @@ const staticPostsSubfolders: Subfolder[] = [
   },
   {
     key: "sub4",
-    label: "DECA Chapter",
+    label: "MDHS DECA Chapter",
     popupTitle: "DECA Chapter",
     images: [
-      { src: "/designs/static/sub-4.png", title: "Title", caption: "Short caption here" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
+      { src: "/DECA Chapter Grade 9 Day, 2026 (Canva).png", title: "MDHS DECA Chapter", caption: "Canva" },
+      { src: "/deca intro meeting.png", title: "MDHS DECA Chapter", caption: "Canva" },
+      { src: "/deca is back post.png", title: "MDHS DECA Chapter", caption: "Canva" },
     ],
   },
   {
@@ -115,10 +127,7 @@ const staticPostsSubfolders: Subfolder[] = [
     label: "Independent Designs",
     popupTitle: "Independent Designs",
     images: [
-      { src: "/designs/static/sub-5.png", title: "Title", caption: "Short caption here" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
-      { src: "", title: "", caption: "" },
+      { src: "/drink poster.png", title: "Independent Design", caption: "Canva" },
     ],
   },
 ];
