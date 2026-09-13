@@ -164,7 +164,7 @@ function ThumbnailCard({
       )}
       {item.title ? (
         <h3
-          className="mt-2 text-sm font-semibold text-gray-800"
+          className="mt-2 text-sm font-semibold bg-gradient-to-r from-[#a3c167] to-[#c1d4b9] bg-clip-text text-transparent"
           style={titleFont ? { fontFamily: "var(--font-title)" } : undefined}
         >
           {item.title}
@@ -271,7 +271,7 @@ export function Work() {
               ) : (
                 // ----- Static Posts: list of 5 sub-folders -----
                 <>
-                  <h2 className="text-2xl font-bold text-green-500 mb-6">Static Posts</h2>
+                  <h2 className="text-2xl font-bold text-pink-500 mb-6">Static Posts</h2>
                   <div className="space-y-5">
                     {staticPostsSubfolders.map((sf, i) => (
                       <FolderRow

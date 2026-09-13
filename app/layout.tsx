@@ -3,13 +3,10 @@ import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 
-import { Atkinson_Hyperlegible } from 'next/font/google'
-
-const titleFont = Atkinson_Hyperlegible ({
-  subsets: ['latin'],
-  weight: ['400'], 
-  variable: '--font-title',
+const gothamthin = localFont({
+  src: './fonts/Gotham Thin.otf',
   display: 'swap',
+  variable: '--font-title', // Add this exact line
 })
 
 const monberg = localFont({
@@ -33,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-          <html lang="en" className={`bg-background ${titleFont.variable}`}>
+          <html lang="en" className={`bg-background ${gothamthin.variable}`}>
           <body className={`${monberg.className} antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
