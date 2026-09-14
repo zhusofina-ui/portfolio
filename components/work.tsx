@@ -133,7 +133,6 @@ const staticPostsSubfolders: Subfolder[] = [
     images: [
       { src: "/FUSE Deadline Sept 9.png", title: "Fuse Society", caption: "Canva" },
       { src: "/26-27 ambassador hiring introduction post.png", title: "Fuse Society", caption: "Canva" },
-      { src: "/_lY.png", title: "Fuse Society", caption: "Canva" },
     ],
   },
   {
