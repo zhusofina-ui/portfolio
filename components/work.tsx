@@ -27,20 +27,20 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
     layout: "single",
     images: [
       {
-        src: "/Daily Bread Food Bank & The Youth Horizon, 2026.png",
-        title: "Daily Bread Food Bank & The Youth Horizon, 2026",
-        caption: "Adobe Photoshop CC 2026 & Canva",
-      },
-      {
         src: "/2-imageonline.co-merged (4).png",
         title: "The Peer Power Project & The Youth Horizon, 2026",
         caption: "Canva",
       },
       {
-        src: "/_lY.png",
-        title: "Fuse Society, 2026",
-        caption: "Canva",
+        src: "/Daily Bread Food Bank & The Youth Horizon, 2026.png",
+        title: "Daily Bread Food Bank & The Youth Horizon, 2026",
+        caption: "Adobe Photoshop CC 2026 & Canva",
       },
+      {
+        src: "/4-imageonline.co-merged.png",
+        title: "MDHS DECA Chapter, 2026",
+        caption: "Canva",
+      }
     ],
   },
   branding: {
