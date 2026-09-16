@@ -43,6 +43,7 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
       }
     ],
   },
+  
   branding: {
     title: "Branding & Collaborations",
     layout: "single",
@@ -152,6 +153,7 @@ const staticPostsSubfolders: Subfolder[] = [
     images: [
       { src: "/drink poster.png", title: "Independent Design", caption: "Canva" },
       { src: "/gaussianstar.png", title: "Independent Design", caption: "Adobe Illustrator CC 2026" },
+      { src: "/pear.jpg", title: "Independent Design", caption: "Adobe Illustrator CC 2026" },
     ],
   },
 ];
