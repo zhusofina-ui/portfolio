@@ -40,6 +40,11 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
         src: "/4-imageonline.co-merged.png",
         title: "MDHS DECA Chapter, 2026",
         caption: "Canva",
+      },
+      {
+        src: "/decainc.png",
+        title: "DECA Inc., 2026",
+        caption: "Canva",
       }
     ],
   },
