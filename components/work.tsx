@@ -175,7 +175,7 @@ const staticPostsSubfolders: Subfolder[] = [
             caption: "@esp.info",
           },
           {
-            src: "/icecream.jpg",
+            src: "/icecream (1).jpg",
             title: "Independent Design",
             caption: "Adobe Illustrator CC 2026",
           },
