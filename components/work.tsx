@@ -89,7 +89,6 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
       { src: "flower1.png", title: "kaleidoscope", caption: "watercolour, Ø 20 cm" },
       { src: "flower2.png", title: "pinkie pie", caption: "watercolour, Ø 20 cm" },
       { src: "/sofinazhu.resume (4)_page-0001.jpg", title: "Check out my resume!", caption: "" },
-
     ],
   },
 };
@@ -110,6 +109,11 @@ type Subfolder = {
   label: string;
   popupTitle: string;
   images: ImageItem[];
+  folders?: {
+    name: string;
+    caption?: string; 
+    images: ImageItem[];
+  }[];
 };
 
 const staticPostsSubfolders: Subfolder[] = [
@@ -159,6 +163,24 @@ const staticPostsSubfolders: Subfolder[] = [
       { src: "/drink poster.png", title: "Independent Design", caption: "Canva" },
       { src: "/gaussianstar.png", title: "Independent Design", caption: "Adobe Illustrator CC 2026" },
       { src: "/pear (1).jpg", title: "Independent Design", caption: "Adobe Illustrator CC 2026" },
+    ],
+    folders: [
+      {
+        name: "Anti-AI Campaign",
+        caption: "A personal project spreading awareness about why generative artifical intelligence shouldn't be used in the arts. Real art needs human creativity!",
+        images: [
+          {
+            src: "/ai1.webp",
+            title: "Original Post",
+            caption: "@esp.info",
+          },
+          {
+            src: "/icecream.jpg",
+            title: "Independent Design",
+            caption: "Adobe Illustrator CC 2026",
+          },
+        ],
+      },
     ],
   },
 ];
@@ -223,7 +245,9 @@ function FolderRow({ label, tabColor, onClick }: { label: string; tabColor: stri
     <button onClick={onClick} className="relative block w-full text-left">
       <span className={`absolute -top-2 left-4 h-3 w-20 rounded-t-lg ${tabColor}`} />
       <span className="relative block w-full rounded-2xl bg-white px-6 py-6 shadow-sm transition-shadow hover:shadow-md">
-        <span className="text-xl font-bold text-pink-400">{label}</span>
+        <span className="text-xl font-bold text-pink-400">
+          {label}
+        </span>
       </span>
     </button>
   );
@@ -232,20 +256,31 @@ function FolderRow({ label, tabColor, onClick }: { label: string; tabColor: stri
 export function Work() {
   const [openFolder, setOpenFolder] = useState<FolderKey | null>(null);
   const [activeSubfolder, setActiveSubfolder] = useState<SubfolderKey | null>(null);
+  const [openNestedFolder, setOpenNestedFolder] = useState<string | null>(null);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
 
   const closeAll = () => {
     setOpenFolder(null);
     setActiveSubfolder(null);
+    setOpenNestedFolder(null);
   };
 
   const openHotspot = (key: FolderKey) => {
     setActiveSubfolder(null);
+    setOpenNestedFolder(null);
     setOpenFolder(key);
+  };
+
+  const handleSubfolderBack = () => {
+    setActiveSubfolder(null);
+    setOpenNestedFolder(null);
   };
 
   const folderData = openFolder && openFolder !== "staticPosts" ? folderContent[openFolder] : null;
   const activeSubfolderData = staticPostsSubfolders.find((sf) => sf.key === activeSubfolder) ?? null;
+  
+  // Find the currently open nested folder object
+  const currentNestedFolder = activeSubfolderData?.folders?.find(f => f.name === openNestedFolder);
 
   return (
     <div className="relative w-full">
@@ -284,27 +319,79 @@ export function Work() {
 
             {openFolder === "staticPosts" ? (
               activeSubfolderData ? (
-                <>
-                  <button
-                    onClick={() => setActiveSubfolder(null)}
-                    className="mb-4 text-sm font-semibold text-pink-400 hover:text-pink-500"
-                  >
-                    ← Back
-                  </button>
-                  <h2 className="text-2xl font-bold text-pink-500 mb-6">
-                    {activeSubfolderData.popupTitle}
-                  </h2>
-                  <div className="grid grid-cols-2 gap-6">
-                    {activeSubfolderData.images.map((img, i) => (
-                      <ThumbnailCard
-                        key={img.src || `${activeSubfolderData.key}-blank-${i}`}
-                        item={img}
-                        aspect="a4"
-                        onZoom={(src) => setZoomedImage(src)}
-                      />
-                    ))}
-                  </div>
-                </>
+                openNestedFolder ? (
+                  <>
+                    <button
+                      onClick={() => setOpenNestedFolder(null)}
+                      className="mb-4 text-sm font-semibold text-pink-400 hover:text-pink-500"
+                    >
+                      ← Back to {activeSubfolderData.popupTitle}
+                    </button>
+                    
+                    <div className="mb-6">
+                      <h2 className="text-2xl font-bold text-pink-500">
+                        {openNestedFolder}
+                      </h2>
+                      {/* Render Caption Here */}
+                      {currentNestedFolder?.caption && (
+                        <p className="mt-2 text-sm text-pink-400">
+                          {currentNestedFolder.caption}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-6">
+                      {currentNestedFolder?.images.map((img, i) => (
+                        <ThumbnailCard
+                          key={img.src || `nested-blank-${i}`}
+                          item={img}
+                          aspect="a4"
+                          onZoom={(src) => setZoomedImage(src)}
+                        />
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      onClick={handleSubfolderBack}
+                      className="mb-4 text-sm font-semibold text-pink-400 hover:text-pink-500"
+                    >
+                      ← Back
+                    </button>
+                    <h2 className="text-2xl font-bold text-pink-500 mb-6">
+                      {activeSubfolderData.popupTitle}
+                    </h2>
+
+                    {/* Display Nested Folders as FolderRows stacked at the top */}
+                    {activeSubfolderData.folders && activeSubfolderData.folders.length > 0 && (
+                      <div className="space-y-5 mb-8">
+                        {activeSubfolderData.folders.map((folder, i) => (
+                          <FolderRow
+                            key={folder.name}
+                            label={folder.name}
+                            tabColor={i % 2 === 0 ? "bg-pink-400" : "bg-pink-200"}
+                            onClick={() => setOpenNestedFolder(folder.name)}
+                          />
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Render Loose Images below in grid */}
+                    {activeSubfolderData.images && activeSubfolderData.images.length > 0 && (
+                      <div className="grid grid-cols-2 gap-6 items-start">
+                        {activeSubfolderData.images.map((img, i) => (
+                          <ThumbnailCard
+                            key={img.src || `${activeSubfolderData.key}-blank-${i}`}
+                            item={img}
+                            aspect="a4"
+                            onZoom={(src) => setZoomedImage(src)}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </>
+                )
               ) : (
                 <>
                   <h2 className="text-2xl font-bold text-pink-500 mb-6">Static Posts</h2>
