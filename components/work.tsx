@@ -161,13 +161,11 @@ const staticPostsSubfolders: Subfolder[] = [
     popupTitle: "Independent Designs",
     images: [
       { src: "/drink poster.png", title: "Independent Design", caption: "Canva" },
-      { src: "/gaussianstar.png", title: "Independent Design", caption: "Adobe Illustrator CC 2026" },
-      { src: "/pear (1).jpg", title: "Independent Design", caption: "Adobe Illustrator CC 2026" },
     ],
     folders: [
       {
-        name: "Anti-AI Campaign",
-        caption: "A personal project spreading awareness about why generative artifical intelligence shouldn't be used in the arts. Real art needs human creativity!",
+        name: "anti-ai",
+        caption: "A personal project spreading awareness about generative artifical intelligence usage in the arts. Real art needs human creativity!",
         images: [
           {
             src: "/ai1.webp",
@@ -175,7 +173,23 @@ const staticPostsSubfolders: Subfolder[] = [
             caption: "@esp.info",
           },
           {
-            src: "/icecream (1).jpg",
+            src: "/icecream (2).jpg",
+            title: "Independent Design",
+            caption: "Adobe Illustrator CC 2026",
+          },
+        ],
+      },
+      {
+        name: "gaussian & grain",
+        caption: "A personal project inspired by using Gaussian Blur and Grain on Illustrator, recreations from @softlighttaco.",
+        images: [
+          {
+            src: "/gaussianstar.png",
+            title: "Independent Design",
+            caption: "Adobe Illustrator CC 2026",
+          },
+          {
+            src: "/pear (1).jpg",
             title: "Independent Design",
             caption: "Adobe Illustrator CC 2026",
           },
