@@ -161,11 +161,6 @@ const staticPostsSubfolders: Subfolder[] = [
     popupTitle: "Independent Designs",
     images: [
       { src: "/drink poster.png", title: "Independent Design", caption: "Canva" },
-      {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/calendarpiece.png-IYRQB4WdkcS1y6MLAskdoOPou42RAo.jpeg",
-        title: "Independent Design, inspired by @amatchaworld",
-        caption: "Adobe Illustrator CC 2026",
-      },
     ],
     folders: [
       {
