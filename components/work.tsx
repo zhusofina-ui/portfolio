@@ -13,6 +13,8 @@ export type ImageItem = {
   src: string;
   title?: string;
   caption?: string;
+  customWidth?: string;
+  customAspect?: string;
 };
 
 export type FolderData = {
@@ -309,11 +311,11 @@ export function Work() {
 
   return (
     <div className="relative w-full">
-      <img
-        src="/portfoliocover-02.png"
-        alt="Work station"
-        className="w-full h-auto block"
-      />
+      <img 
+  src="https://plain-enam-prod-public.komododecks.com/202610/05/dDzu2IOws9jnBB9zlWbu/image.png" 
+  alt="Work station" 
+  className="w-full block" 
+/>
 
       {hotspots.map((spot) => (
         <button
