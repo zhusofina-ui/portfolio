@@ -13,6 +13,8 @@ export type ImageItem = {
   src: string;
   title?: string;
   caption?: string;
+  customWidth?: string;
+  customAspect?: string;
 };
 
 export type FolderData = {
@@ -156,13 +158,24 @@ const staticPostsSubfolders: Subfolder[] = [
     ],
   },
   {
-    key: "sub5",
-    label: "Independent Designs",
-    popupTitle: "Independent Designs",
-    images: [
-      { src: "/drink poster.png", title: "Independent Design", caption: "Canva" },
-    ],
-    folders: [
+   key: "sub5",
+  label: "Independent Designs",
+  popupTitle: "Independent Designs",
+images: [
+  {
+    src: "https://plain-enam-prod-public.komododecks.com/202610/05/jAJ3FgVQAgvJKiW8tomm/image.png",
+    title: "Independent Design, inspired by @amatchaworld",
+    caption: "Adobe Illustrator CC 2026",
+    customWidth: "100%"
+  },
+  {
+    src: "/drink poster.png",
+    title: "Independent Design",
+    caption: "Canva",
+    customWidth: "50%"
+  }
+],
+  folders: [
       {
         name: "anti-ai",
         caption: "A personal project spreading awareness about generative artifical intelligence usage in the arts. Real art needs human creativity!",
@@ -221,7 +234,7 @@ function ThumbnailCard({
   titleFont?: boolean;
   onZoom?: (src: string) => void;
 }) {
-  const aspectClass = aspect === "a4" ? "aspect-[210/297]" : "aspect-square";
+const aspectClass = aspect === "a4" ? "aspect-[210/297]" : aspect === "auto" ? "aspect-auto" : "aspect-square";
 
   return (
     <div className="flex flex-col w-full">
@@ -298,11 +311,11 @@ export function Work() {
 
   return (
     <div className="relative w-full">
-      <img
-        src="/portfoliocover-02.png"
-        alt="Work station"
-        className="w-full h-auto block"
-      />
+      <img 
+  src="https://plain-enam-prod-public.komododecks.com/202610/05/dDzu2IOws9jnBB9zlWbu/image.png" 
+  alt="Work station" 
+  className="w-full block" 
+/>
 
       {hotspots.map((spot) => (
         <button
@@ -354,16 +367,16 @@ export function Work() {
                       )}
                     </div>
 
-                    <div className="grid grid-cols-2 gap-6">
-                      {currentNestedFolder?.images.map((img, i) => (
-                        <ThumbnailCard
-                          key={img.src || `nested-blank-${i}`}
-                          item={img}
-                          aspect="a4"
-                          onZoom={(src) => setZoomedImage(src)}
-                        />
-                      ))}
-                    </div>
+                    <div className="grid grid-cols-2 gap-6 items-start">
+  {currentNestedFolder?.images.map((img, i) => (
+    <ThumbnailCard
+      key={img.src || `nested-blank-${i}`}
+      item={img}
+      aspect="a4"
+      onZoom={(src) => setZoomedImage(src)}
+    />
+  ))}
+</div>
                   </>
                 ) : (
                   <>
@@ -393,16 +406,34 @@ export function Work() {
 
                     {/* Render Loose Images below in grid */}
                     {activeSubfolderData.images && activeSubfolderData.images.length > 0 && (
-                      <div className="grid grid-cols-2 gap-6 items-start">
-                        {activeSubfolderData.images.map((img, i) => (
-                          <ThumbnailCard
-                            key={img.src || `${activeSubfolderData.key}-blank-${i}`}
-                            item={img}
-                            aspect="a4"
-                            onZoom={(src) => setZoomedImage(src)}
-                          />
-                        ))}
-                      </div>
+  <div 
+  className={
+    activeSubfolderData.label === "Independent Designs" 
+      ? "flex flex-col gap-6 w-full items-start" 
+      : "grid grid-cols-2 gap-6 items-start"
+  }
+>
+  {activeSubfolderData.images.map((img, i) => (
+    <div 
+      key={img.src || `${activeSubfolderData.key}-blank-${i}`}
+      style={
+        activeSubfolderData.label === "Independent Designs" 
+          ? { width: img.title === "Independent Design" ? "50%" : "100%" } 
+          : { width: "100%" }
+      }
+    >
+      <ThumbnailCard
+        item={img}
+        aspect={
+          activeSubfolderData.label === "Independent Designs" 
+            ? (img.title === "Independent Design, inspired by @amatchaworld" ? "auto" : "a4") 
+            : "a4"
+        }
+        onZoom={(src) => setZoomedImage(src)}
+      />
+    </div>
+  ))}
+</div>
                     )}
                   </>
                 )
