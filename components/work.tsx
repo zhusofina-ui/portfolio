@@ -367,18 +367,14 @@ export function Work() {
                       )}
                     </div>
 
-                    <div className="flex flex-col gap-6 w-full items-start">
-    {currentNestedFolder?.images.map((img, i) => (
-    <div 
+                    <div className="grid grid-cols-2 gap-6 items-start">
+  {currentNestedFolder?.images.map((img, i) => (
+    <ThumbnailCard
       key={img.src || `nested-blank-${i}`}
-      style={{ width: img.title === "Independent Design" ? "50%" : "100%" }}
-    >
-      <ThumbnailCard
-        item={img}
-        aspect="a4"
-        onZoom={(src) => setZoomedImage(src)}
-      />
-    </div>
+      item={img}
+      aspect="a4"
+      onZoom={(src) => setZoomedImage(src)}
+    />
   ))}
 </div>
                   </>
