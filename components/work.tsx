@@ -162,8 +162,8 @@ const staticPostsSubfolders: Subfolder[] = [
 images: [
   {
     src: "https://plain-enam-prod-public.komododecks.com/202610/05/jAJ3FgVQAgvJKiW8tomm/image.png",
-    title: "Calendar Banner",
-    caption: "Canva",
+    title: "Independent Design, inspired by @amatchaworld",
+    caption: "Adobe Illustrator CC 2026",
     customWidth: "100%"
   },
   {
@@ -232,7 +232,7 @@ function ThumbnailCard({
   titleFont?: boolean;
   onZoom?: (src: string) => void;
 }) {
-  const aspectClass = aspect === "a4" ? "aspect-[210/297]" : aspect === "auto" ? "aspect-auto" : "aspect-square";
+const aspectClass = aspect === "a4" ? "aspect-[210/297]" : aspect === "auto" ? "aspect-auto" : "aspect-square";
 
   return (
     <div className="flex flex-col w-full">
@@ -408,17 +408,31 @@ export function Work() {
 
                     {/* Render Loose Images below in grid */}
                     {activeSubfolderData.images && activeSubfolderData.images.length > 0 && (
-                      <div className="flex flex-col gap-6 w-full items-start">
+  <div 
+  className={
+    activeSubfolderData.label === "Independent Designs" 
+      ? "flex flex-col gap-6 w-full items-start" 
+      : "grid grid-cols-2 gap-6 items-start"
+  }
+>
   {activeSubfolderData.images.map((img, i) => (
     <div 
       key={img.src || `${activeSubfolderData.key}-blank-${i}`}
-      style={{ width: img.title === "Independent Design" ? "50%" : "100%" }}
+      style={
+        activeSubfolderData.label === "Independent Designs" 
+          ? { width: img.title === "Independent Design" ? "50%" : "100%" } 
+          : { width: "100%" }
+      }
     >
-     <ThumbnailCard
-  item={img}
-  aspect={img.title === "Calendar Banner" ? "auto" : "a4"}
-  onZoom={(src) => setZoomedImage(src)}
-/>
+      <ThumbnailCard
+        item={img}
+        aspect={
+          activeSubfolderData.label === "Independent Designs" 
+            ? (img.title === "Independent Design, inspired by @amatchaworld" ? "auto" : "a4") 
+            : "a4"
+        }
+        onZoom={(src) => setZoomedImage(src)}
+      />
     </div>
   ))}
 </div>
