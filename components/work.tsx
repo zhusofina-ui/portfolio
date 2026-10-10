@@ -21,12 +21,25 @@ export type FolderData = {
   title: string;
   layout: "grid" | "single";
   images: ImageItem[];
+  folders?: {
+    name: string;
+    caption?: string; 
+    images: ImageItem[];
+  }[];
 };
 
 const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
   carousels: {
     title: "Carousels & Banners",
     layout: "single",
+    folders: [
+      {
+        name: "SAC (Student Council)",
+        images: [
+        { src: "https://plain-enam-prod-public.komododecks.com/202610/10/z71qYAtwzGDj62ZcCKtK/image.png", title: "SAC Fall Fest Banner", caption: "Canva" }
+        ],
+      },
+    ],
     images: [
       {
         src: "/2-imageonline.co-merged (4).png",
@@ -229,7 +242,7 @@ function ThumbnailCard({
   onZoom,
 }: {
   item: ImageItem;
-  aspect?: "square" | "a4";
+  aspect?: "square" | "a4" | "auto";
   titleFont?: boolean;
   onZoom?: (src: string) => void;
 }) {
@@ -306,15 +319,18 @@ export function Work() {
   const activeSubfolderData = staticPostsSubfolders.find((sf) => sf.key === activeSubfolder) ?? null;
   
   // Find the currently open nested folder object
-  const currentNestedFolder = activeSubfolderData?.folders?.find(f => f.name === openNestedFolder);
+  const currentNestedFolder =
+    openFolder === "staticPosts"
+      ? activeSubfolderData?.folders?.find((f) => f.name === openNestedFolder)
+      : folderData?.folders?.find((f) => f.name === openNestedFolder);
 
   return (
     <div className="relative w-full">
       <img 
-  src="https://plain-enam-prod-public.komododecks.com/202610/05/dDzu2IOws9jnBB9zlWbu/image.png" 
-  alt="Work station" 
-  className="w-full block" 
-/>
+        src="https://plain-enam-prod-public.komododecks.com/202610/05/dDzu2IOws9jnBB9zlWbu/image.png" 
+        alt="Work station" 
+        className="w-full block" 
+      />
 
       {hotspots.map((spot) => (
         <button
@@ -367,15 +383,15 @@ export function Work() {
                     </div>
 
                     <div className="grid grid-cols-2 gap-6 items-start">
-  {currentNestedFolder?.images.map((img, i) => (
-    <ThumbnailCard
-      key={img.src || `nested-blank-${i}`}
-      item={img}
-      aspect="a4"
-      onZoom={(src) => setZoomedImage(src)}
-    />
-  ))}
-</div>
+                      {currentNestedFolder?.images.map((img, i) => (
+                        <ThumbnailCard
+                          key={img.src || `nested-blank-${i}`}
+                          item={img}
+                          aspect="a4"
+                          onZoom={(src) => setZoomedImage(src)}
+                        />
+                      ))}
+                    </div>
                   </>
                 ) : (
                   <>
@@ -405,34 +421,34 @@ export function Work() {
 
                     {/* Render Loose Images below in grid */}
                     {activeSubfolderData.images && activeSubfolderData.images.length > 0 && (
-  <div 
-  className={
-    activeSubfolderData.label === "Independent Designs" 
-      ? "flex flex-col gap-6 w-full items-start" 
-      : "grid grid-cols-2 gap-6 items-start"
-  }
->
-  {activeSubfolderData.images.map((img, i) => (
-    <div 
-      key={img.src || `${activeSubfolderData.key}-blank-${i}`}
-      style={
-        activeSubfolderData.label === "Independent Designs" 
-          ? { width: img.title === "Independent Design" ? "50%" : "100%" } 
-          : { width: "100%" }
-      }
-    >
-      <ThumbnailCard
-        item={img}
-        aspect={
-          activeSubfolderData.label === "Independent Designs" 
-            ? (img.title === "Independent Design, inspired by @amatchaworld" ? "auto" : "a4") 
-            : "a4"
-        }
-        onZoom={(src) => setZoomedImage(src)}
-      />
-    </div>
-  ))}
-</div>
+                      <div 
+                        className={
+                          activeSubfolderData.label === "Independent Designs" 
+                            ? "flex flex-col gap-6 w-full items-start" 
+                            : "grid grid-cols-2 gap-6 items-start"
+                        }
+                      >
+                        {activeSubfolderData.images.map((img, i) => (
+                          <div 
+                            key={img.src || `${activeSubfolderData.key}-blank-${i}`}
+                            style={
+                              activeSubfolderData.label === "Independent Designs" 
+                                ? { width: img.title === "Independent Design" ? "50%" : "100%" } 
+                                : { width: "100%" }
+                            }
+                          >
+                            <ThumbnailCard
+                              item={img}
+                              aspect={
+                                activeSubfolderData.label === "Independent Designs" 
+                                  ? (img.title === "Independent Design, inspired by @amatchaworld" ? "auto" : "a4") 
+                                  : "a4"
+                              }
+                              onZoom={(src) => setZoomedImage(src)}
+                            />
+                          </div>
+                        ))}
+                      </div>
                     )}
                   </>
                 )
@@ -453,46 +469,97 @@ export function Work() {
               )
             ) : (
               folderData && (
-                <>
-                  <h2 className="text-2xl font-bold text-pink-500 mb-4">{folderData.title}</h2>
-                  {folderData.layout === "grid" ? (
-                    <div className="grid grid-cols-2 gap-6">
-                      {folderData.images.map((img, i) => (
-                        <ThumbnailCard 
-                          key={img.src || `blank-${i}`} 
-                          item={img} 
+                openNestedFolder && currentNestedFolder ? (
+                  // === VIEWING A NESTED FOLDER INSIDE CAROUSELS/ETC ===
+                  <>
+                    <button
+                      onClick={() => setOpenNestedFolder(null)}
+                      className="mb-4 text-sm font-semibold text-pink-400 hover:text-pink-500"
+                    >
+                      ← Back to {folderData.title}
+                    </button>
+                    
+                    <div className="mb-6">
+                      <h2 className="text-2xl font-bold text-pink-500">
+                        {openNestedFolder}
+                      </h2>
+                      {currentNestedFolder.caption && (
+                        <p className="mt-2 text-sm text-pink-400">
+                          {currentNestedFolder.caption}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-6 items-start">
+                      {currentNestedFolder.images.map((img, i) => (
+                        <ThumbnailCard
+                          key={img.src || `nested-blank-${i}`}
+                          item={img}
+                          aspect="a4"
                           onZoom={(src) => setZoomedImage(src)}
                         />
                       ))}
                     </div>
-                  ) : (
-                    <div className="flex flex-col gap-10">
-                      {folderData.images.map((img, i) => (
-                        <div key={img.src || `blank-${i}`} className="flex flex-col w-full">
-                          {img.src ? (
-                            <img 
-                              src={img.src} 
-                              alt={img.title || ""} 
-                              onClick={() => setZoomedImage(img.src)}
-                              className="w-full h-auto object-contain rounded-lg shadow-sm bg-pink-50/40 cursor-zoom-in" 
-                            />
-                          ) : (
-                            <div className="w-full h-64 rounded-lg border-2 border-dashed border-pink-200 bg-pink-50/40" />
-                          )}
-                          
-                          {img.title && (
-                            <h3 className="mt-3 text-lg font-bold bg-gradient-to-r from-[#8fad54] to-[#c1d4b9] bg-clip-text text-transparent">
-                              {img.title}
-                            </h3>
-                          )}
-                          {img.caption && (
-                            <p className="mt-1 text-sm text-pink-400">{img.caption}</p>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </>
+                  </>
+                ) : (
+                  // === VIEWING THE MAIN FOLDER (e.g., Carousels) ===
+                  <>
+                    <h2 className="text-2xl font-bold text-pink-500 mb-6">{folderData.title}</h2>
+                    
+                    {/* Render any subfolders (like SAC) first */}
+                    {folderData.folders && folderData.folders.length > 0 && (
+                      <div className="space-y-5 mb-8">
+                        {folderData.folders.map((folder, i) => (
+                          <FolderRow
+                            key={folder.name}
+                            label={folder.name}
+                            tabColor={i % 2 === 0 ? "bg-pink-400" : "bg-pink-200"}
+                            onClick={() => setOpenNestedFolder(folder.name)}
+                          />
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Render the loose images below the subfolders */}
+                    {folderData.layout === "grid" ? (
+                      <div className="grid grid-cols-2 gap-6">
+                        {folderData.images.map((img, i) => (
+                          <ThumbnailCard 
+                            key={img.src || `blank-${i}`} 
+                            item={img} 
+                            onZoom={(src) => setZoomedImage(src)}
+                          />
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="flex flex-col gap-10">
+                        {folderData.images.map((img, i) => (
+                          <div key={img.src || `blank-${i}`} className="flex flex-col w-full">
+                            {img.src ? (
+                              <img 
+                                src={img.src} 
+                                alt={img.title || ""} 
+                                onClick={() => setZoomedImage(img.src)}
+                                className="w-full h-auto object-contain rounded-lg shadow-sm bg-pink-50/40 cursor-zoom-in" 
+                              />
+                            ) : (
+                              <div className="w-full h-64 rounded-lg border-2 border-dashed border-pink-200 bg-pink-50/40" />
+                            )}
+                            
+                            {img.title && (
+                              <h3 className="mt-3 text-lg font-bold bg-gradient-to-r from-[#8fad54] to-[#c1d4b9] bg-clip-text text-transparent">
+                                {img.title}
+                              </h3>
+                            )}
+                            {img.caption && (
+                              <p className="mt-1 text-sm text-pink-400">{img.caption}</p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                )
               )
             )}
           </div>
