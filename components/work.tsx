@@ -104,7 +104,7 @@ const hotspotLabels: Record<FolderKey, string> = {
   misc: "Miscellaneous",
 };
 
-type SubfolderKey = "sub1" | "sub2" | "sub3" | "sub4" | "sub5";
+type SubfolderKey = "sub1" | "sub2" | "sub3" | "sub4" | "sub5"| "sub6";
 
 type Subfolder = {
   key: SubfolderKey;
@@ -140,11 +140,10 @@ const staticPostsSubfolders: Subfolder[] = [
   },
   {
     key: "sub3",
-    label: "Fuse Society",
-    popupTitle: "Fuse Society",
+    label: "MTAC (Markham Teen Arts Council)",
+    popupTitle: "MTAC (Markham Teen Arts Council)",
     images: [
-      { src: "/FUSE Deadline Sept 9.png", title: "Fuse Society", caption: "Canva" },
-      { src: "/26-27 ambassador hiring introduction post.png", title: "Fuse Society", caption: "Canva" },
+      { src: "https://plain-enam-prod-public.komododecks.com/202610/10/YZ6XwHF21Ucayf8v151R/image.png", title: "MTAC (Markham Teen Arts Council)", caption: "Canva" },
     ],
   },
   {
