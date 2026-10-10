@@ -490,16 +490,45 @@ export function Work() {
                       )}
                     </div>
 
-                    <div className="grid grid-cols-2 gap-6 items-start">
-                      {currentNestedFolder.images.map((img, i) => (
-                        <ThumbnailCard
-                          key={img.src || `nested-blank-${i}`}
-                          item={img}
-                          aspect="a4"
-                          onZoom={(src) => setZoomedImage(src)}
-                        />
-                      ))}
-                    </div>
+                    {/* Dynamically match the parent folder's layout style */}
+                    {folderData.layout === "grid" ? (
+                      <div className="grid grid-cols-2 gap-6 items-start">
+                        {currentNestedFolder.images.map((img, i) => (
+                          <ThumbnailCard
+                            key={img.src || `nested-blank-${i}`}
+                            item={img}
+                            aspect="a4"
+                            onZoom={(src) => setZoomedImage(src)}
+                          />
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="flex flex-col gap-10">
+                        {currentNestedFolder.images.map((img, i) => (
+                          <div key={img.src || `nested-blank-${i}`} className="flex flex-col w-full">
+                            {img.src ? (
+                              <img 
+                                src={img.src} 
+                                alt={img.title || ""} 
+                                onClick={() => setZoomedImage(img.src)}
+                                className="w-full h-auto object-contain rounded-lg shadow-sm bg-pink-50/40 cursor-zoom-in" 
+                              />
+                            ) : (
+                              <div className="w-full h-64 rounded-lg border-2 border-dashed border-pink-200 bg-pink-50/40" />
+                            )}
+                            
+                            {img.title && (
+                              <h3 className="mt-3 text-lg font-bold bg-gradient-to-r from-[#8fad54] to-[#c1d4b9] bg-clip-text text-transparent">
+                                {img.title}
+                              </h3>
+                            )}
+                            {img.caption && (
+                              <p className="mt-1 text-sm text-pink-400">{img.caption}</p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </>
                 ) : (
                   // === VIEWING THE MAIN FOLDER (e.g., Carousels) ===
