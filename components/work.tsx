@@ -157,7 +157,8 @@ const staticPostsSubfolders: Subfolder[] = [
     popupTitle: "MTAC (Markham Teen Arts Council)",
     images: [
       { src: "https://plain-enam-prod-public.komododecks.com/202610/10/YZ6XwHF21Ucayf8v151R/image.png", title: "MTAC (Markham Teen Arts Council)", caption: "Canva" },
-    ],
+      { src: "https://plain-enam-prod-public.komododecks.com/202610/10/gHwYO23y7KCOQ879CHmq/image.png", title: "MTAC (Markham Teen Arts Council)", caption: "Canva" },
+        ],
   },
   {
     key: "sub4",
