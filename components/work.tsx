@@ -32,25 +32,25 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
   carousels: {
     title: "Carousels & Banners",
     layout: "single",
-    folders: [
-      {
-        name: "SAC (Student Council)",
-        images: [
-        { src: "https://plain-enam-prod-public.komododecks.com/202610/10/z71qYAtwzGDj62ZcCKtK/image.png", title: "SAC Fall Fest Banner", caption: "Canva" }
-        ],
-      },
-    ],
+
+  folders: [
+    {
+      name: "SAC (Student Council)",
+      images: [
+        { src: "https://plain-enam-prod-public.komododecks.com/202611/03/c4NSXcAHxP8qceLYbY21/image.png", title: "SAC Fall Fest Banner", caption: "Canva" }
+      ]
+    }, 
+    { 
+      name: "The Youth Horizon", 
+      images: [
+        { src: "/2-imageonline.co-merged (4).png", title: "The Peer Power Project & The Youth Horizon, 2026", caption: "Canva" },
+        { src: "/Daily Bread Food Bank & The Youth Horizon, 2026.png", title: "Daily Bread Food Bank & The Youth Horizon, 2026", caption: "Adobe Photoshop CC 2026 & Canva" },
+        { src: "https://plain-enam-prod-public.komododecks.com/202611/03/Ls15sPyjdOTRlygUJFWa/image.png", title: "The Youth Horizon, 2026", caption: "Canva" }
+      ]
+    }
+  ],
+  
     images: [
-      {
-        src: "/2-imageonline.co-merged (4).png",
-        title: "The Peer Power Project & The Youth Horizon, 2026",
-        caption: "Canva",
-      },
-      {
-        src: "/Daily Bread Food Bank & The Youth Horizon, 2026.png",
-        title: "Daily Bread Food Bank & The Youth Horizon, 2026",
-        caption: "Adobe Photoshop CC 2026 & Canva",
-      },
       {
         src: "/4-imageonline.co-merged.png",
         title: "MDHS DECA Chapter, 2026",
@@ -60,7 +60,7 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
         src: "/decainc.png",
         title: "DECA Inc., 2026",
         caption: "Canva",
-      }
+      },
     ],
   },
   
@@ -144,11 +144,10 @@ const staticPostsSubfolders: Subfolder[] = [
   },
   {
     key: "sub2",
-    label: "Platform for Youth Creativity",
-    popupTitle: "Platform for Youth Creativity",
+    label: "SAC (Student Council)",
+    popupTitle: "SAC (Student Council)",
     images: [
-      { src: "/pyc exec intros (2).png", title: "Platform for Youth Creativity, 2026", caption: "Canva" },
-      { src: "/pyc exec intros.png", title: "Platform for Youth Creativity, 2026", caption: "Canva" },
+      { src: "https://plain-enam-prod-public.komododecks.com/202611/03/qZoTbxyiePJxt73B6vZV/image.png", title: "SAC Haunted House", caption: "Adobe Illustrator CC 2026" },
     ],
   },
   {
