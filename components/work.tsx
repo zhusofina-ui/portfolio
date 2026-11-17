@@ -187,6 +187,12 @@ images: [
     title: "Independent Design",
     caption: "Canva",
     customWidth: "50%"
+  },
+  {
+    src: "https://plain-enam-prod-public.komododecks.com/202611/17/6uwfexAucOQpgd7W3NxC/image.png",
+    title: "Independent Design",
+    caption: "Adobe Illustrator CC 2026",
+    customWidth: "50%"
   }
 ],
   folders: [
