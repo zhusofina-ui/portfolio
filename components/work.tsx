@@ -148,6 +148,8 @@ const staticPostsSubfolders: Subfolder[] = [
     popupTitle: "SAC (Student Council)",
     images: [
       { src: "https://plain-enam-prod-public.komododecks.com/202611/03/qZoTbxyiePJxt73B6vZV/image.png", title: "SAC Haunted House", caption: "Adobe Illustrator CC 2026" },
+      { src: "https://plain-enam-prod-public.komododecks.com/202611/17/0105dzdfLPmnNsu8WfLn/image.png", title: "SAC PJ Ice Cream Day", caption: "Adobe Illustrator CC 2026" },
+      { src: "https://plain-enam-prod-public.komododecks.com/202611/17/ZKcTYgNfG8KsXFXsZo2R/image.png", title: "SAC Team Posts", caption: "Canva" },
     ],
   },
   {
