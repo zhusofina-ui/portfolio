@@ -47,6 +47,13 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
         { src: "/Daily Bread Food Bank & The Youth Horizon, 2026.png", title: "Daily Bread Food Bank & The Youth Horizon, 2026", caption: "Adobe Photoshop CC 2026 & Canva" },
         { src: "https://plain-enam-prod-public.komododecks.com/202611/03/Ls15sPyjdOTRlygUJFWa/image.png", title: "The Youth Horizon, 2026", caption: "Canva" }
       ]
+    },
+    { 
+      name: "DECA Inc.", 
+      images: [
+        { src: "/decainc.png", title: "DECA Inc., 2026", caption: "Canva" },
+        { src: "https://plain-enam-prod-public.komododecks.com/202611/19/B3IH9StOjUTBylcIzhOZ/image.png", title: "DECA Inc., 2026", caption: "Canva" },
+      ]
     }
   ],
   
@@ -55,12 +62,7 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
         src: "/4-imageonline.co-merged.png",
         title: "MDHS DECA Chapter, 2026",
         caption: "Canva",
-      },
-      {
-        src: "/decainc.png",
-        title: "DECA Inc., 2026",
-        caption: "Canva",
-      },
+      }
     ],
   },
   
@@ -95,7 +97,7 @@ const folderContent: Record<Exclude<FolderKey, "staticPosts">, FolderData> = {
   videography: {
     title: "Videography",
     layout: "grid",
-    images: [{ src: "/content/video-1.png", title: "new content coming soon!", caption: "come back later!" }],
+    images: [{ src: "https://videotourl.net/v/53d497e2-43cc-40ce-8301-502024fc42cd", title: "new content coming soon!", caption: "come back later!" }],
   },
   misc: {
     title: "Miscellaneous",
@@ -198,7 +200,7 @@ images: [
   folders: [
       {
         name: "anti-ai",
-        caption: "A personal project spreading awareness about generative artifical intelligence usage in the arts. Real art needs human creativity!",
+        caption: "ai posters are ugly",
         images: [
           {
             src: "/ai1.webp",
